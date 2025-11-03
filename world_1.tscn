@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://kowrt1v264nb"]
+
+[ext_resource type="Script" uid="uid://dsypu8as2eoxo" path="res://world_1.gd" id="1_mqyi5"]
+[ext_resource type="Texture2D" uid="uid://cn5i0n0jdsgm3" path="res://images/fond_orange.jpeg" id="1_vigqh"]
+[ext_resource type="Texture2D" uid="uid://6t8th1s7kqnx" path="res://images/world_1.png" id="2_mqyi5"]
+[ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="4_1wjj6"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_mqyi5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vigqh")
+
+[node name="level_1" type="TextureButton" parent="."]
+offset_left = 101.0
+offset_top = 80.0
+offset_right = 246.0
+offset_bottom = 223.0
+texture_normal = ExtResource("2_mqyi5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="level_2" type="TextureButton" parent="."]
+offset_left = 274.0
+offset_top = 79.0
+offset_right = 419.0
+offset_bottom = 222.0
+texture_normal = ExtResource("2_mqyi5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="level_3" type="TextureButton" parent="."]
+offset_left = 442.0
+offset_top = 77.0
+offset_right = 587.0
+offset_bottom = 220.0
+texture_normal = ExtResource("2_mqyi5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="level_4" type="TextureButton" parent="."]
+offset_left = 617.0
+offset_top = 80.0
+offset_right = 762.0
+offset_bottom = 223.0
+texture_normal = ExtResource("2_mqyi5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="level_5" type="TextureButton" parent="."]
+offset_left = 788.0
+offset_top = 81.0
+offset_right = 933.0
+offset_bottom = 224.0
+texture_normal = ExtResource("2_mqyi5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="back" type="TextureButton" parent="."]
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 82.0
+offset_bottom = 81.0
+texture_normal = ExtResource("4_1wjj6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
