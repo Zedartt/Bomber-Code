@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfdkmmuoaorhe"]
+[gd_scene load_steps=13 format=3 uid="uid://bfdkmmuoaorhe"]
 
 [ext_resource type="Texture2D" uid="uid://cn5i0n0jdsgm3" path="res://images/fond_orange.jpeg" id="1_76ulo"]
 [ext_resource type="Script" uid="uid://drhq3hhg2ev43" path="res://select_world.gd" id="1_qklif"]
-[ext_resource type="Texture2D" uid="uid://6t8th1s7kqnx" path="res://images/world_1.png" id="3_ooxhb"]
+[ext_resource type="Texture2D" uid="uid://bxnobhspp8pxu" path="res://images/python.png" id="3_lyd0n"]
+[ext_resource type="Texture2D" uid="uid://e2poaj4uqkk3" path="res://images/python_pressed.png" id="4_gwbrm"]
 [ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="4_ooxhb"]
+[ext_resource type="Texture2D" uid="uid://cafuy032u3v4x" path="res://images/python_select.png" id="5_ohm6g"]
+[ext_resource type="Texture2D" uid="uid://d3a67lwdxfe05" path="res://images/java.png" id="6_fj5ni"]
+[ext_resource type="Texture2D" uid="uid://cllfmwn8rshyo" path="res://images/java_pressed.png" id="7_5l0qf"]
+[ext_resource type="Texture2D" uid="uid://bc6bt3fwqt7v2" path="res://images/java_select.png" id="8_eq6k3"]
+[ext_resource type="Texture2D" uid="uid://bqv3grlxlutnh" path="res://images/javascript_secret.png" id="9_fj5ni"]
+[ext_resource type="Texture2D" uid="uid://b43xm1grp5uy" path="res://images/php_secret.png" id="10_5l0qf"]
+[ext_resource type="Texture2D" uid="uid://g88gplr0do08" path="res://images/htmlcss_secret.png" id="11_eq6k3"]
 
 [node name="SelectWorld" type="Node"]
 script = ExtResource("1_qklif")
@@ -17,22 +25,108 @@ grow_vertical = 2
 texture = ExtResource("1_76ulo")
 
 [node name="world_1" type="TextureButton" parent="."]
-offset_left = 122.0
-offset_top = 114.0
-offset_right = 282.0
-offset_bottom = 269.0
-texture_normal = ExtResource("3_ooxhb")
+offset_left = 82.0
+offset_top = 261.0
+offset_right = 242.0
+offset_bottom = 416.0
+scale = Vector2(1.1744618, 1.1719654)
+texture_normal = ExtResource("3_lyd0n")
+texture_pressed = ExtResource("4_gwbrm")
+texture_hover = ExtResource("5_ohm6g")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Label" type="Label" parent="world_1"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 155.0
+offset_right = 131.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 25
+text = "PYTHON"
+horizontal_alignment = 1
+
 [node name="world_2" type="TextureButton" parent="."]
-offset_left = 328.0
-offset_top = 114.0
-offset_right = 488.0
-offset_bottom = 269.0
-texture_normal = ExtResource("3_ooxhb")
+offset_left = 287.0
+offset_top = 261.0
+offset_right = 447.0
+offset_bottom = 416.0
+scale = Vector2(1.1744618, 1.1719654)
+texture_normal = ExtResource("6_fj5ni")
+texture_pressed = ExtResource("7_5l0qf")
+texture_hover = ExtResource("8_eq6k3")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Label" type="Label" parent="world_2"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 155.0
+offset_right = 113.0
+offset_bottom = 178.0
+theme_override_font_sizes/font_size = 25
+text = "JAVA"
+horizontal_alignment = 1
+
+[node name="world_3" type="TextureButton" parent="."]
+offset_left = 492.0
+offset_top = 263.0
+offset_right = 652.0
+offset_bottom = 418.0
+scale = Vector2(1.1744618, 1.1719654)
+texture_normal = ExtResource("9_fj5ni")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="world_3"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 155.0
+offset_right = 152.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 25
+text = "JAVASCRIPT"
+horizontal_alignment = 1
+
+[node name="world_4" type="TextureButton" parent="."]
+offset_left = 687.0
+offset_top = 263.0
+offset_right = 847.0
+offset_bottom = 418.0
+scale = Vector2(1.1744618, 1.1719654)
+texture_normal = ExtResource("10_5l0qf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="world_4"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 155.0
+offset_right = 131.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 25
+text = "PHP"
+horizontal_alignment = 1
+
+[node name="world_5" type="TextureButton" parent="."]
+offset_left = 888.0
+offset_top = 263.0
+offset_right = 1048.0
+offset_bottom = 418.0
+scale = Vector2(1.1744618, 1.1719654)
+texture_normal = ExtResource("11_eq6k3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="world_5"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 155.0
+offset_right = 140.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 25
+text = "HTML CSS"
+horizontal_alignment = 1
 
 [node name="back" type="TextureButton" parent="."]
 offset_left = 12.0
@@ -42,6 +136,18 @@ offset_bottom = 81.0
 texture_normal = ExtResource("4_ooxhb")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.0
+offset_top = 81.0
+offset_right = 150.0
+offset_bottom = 123.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Monde de languages"
 
 [connection signal="pressed" from="world_1" to="." method="_on_world_1_pressed"]
 [connection signal="pressed" from="world_2" to="." method="_on_world_2_pressed"]
