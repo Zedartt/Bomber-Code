@@ -14,3 +14,7 @@ config/name="Bomber Code"
 run/main_scene="uid://vjed5k6r4uf1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
