@@ -47,3 +47,7 @@ func _move(dir: Vector2):
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 #
 	#move_and_slide()
+
+
+func _on_monter_pressed() -> void:
+	pass # Replace with function body.

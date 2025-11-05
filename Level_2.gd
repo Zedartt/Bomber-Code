@@ -22,12 +22,11 @@ func _ready():
 	tilemap_offset = tilemap.position
 	_place_player()
 	_place_door()
-	#update_script_display()  # Affiche les lignes vides au démarrage
 
 func _place_player():
 	var grid_pos = Vector2(
 		(GRID_WIDTH - 1) * CELL_SIZE + CELL_SIZE / 2.0,
-		(GRID_HEIGHT - 1) * CELL_SIZE + CELL_SIZE / 2.0
+		-1 * CELL_SIZE + CELL_SIZE / 2.0
 	)
 	player.position = grid_pos + tilemap_offset
 	current_position = player.position
