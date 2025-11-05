@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://kowrt1v264nb"]
+[gd_scene load_steps=34 format=3 uid="uid://kowrt1v264nb"]
 
 [ext_resource type="Script" uid="uid://dsypu8as2eoxo" path="res://world_1.gd" id="1_mqyi5"]
-[ext_resource type="Texture2D" uid="uid://cn5i0n0jdsgm3" path="res://images/fond_orange.jpeg" id="1_vigqh"]
+[ext_resource type="Texture2D" uid="uid://cttkrka82m4yr" path="res://images/background.png" id="2_7n5i0"]
 [ext_resource type="Texture2D" uid="uid://dxtw1km742g8i" path="res://images/python_1.png" id="3_mnfc1"]
 [ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="4_1wjj6"]
 [ext_resource type="Texture2D" uid="uid://bit71cusov5nx" path="res://images/python_1_pressed.png" id="4_2aexw"]
@@ -18,6 +18,69 @@
 [ext_resource type="Texture2D" uid="uid://db2yvalqqo4r5" path="res://images/python_4_select.png" id="13_5lixo"]
 [ext_resource type="Texture2D" uid="uid://dcvdnxne7giqt" path="res://images/python_5_pressed.png" id="15_811q4"]
 [ext_resource type="Texture2D" uid="uid://cx7urbl2d8fbi" path="res://images/python_5_select.png" id="16_pmev2"]
+[ext_resource type="Texture2D" uid="uid://48d6irsdjem7" path="res://images/popup_card_1.png" id="19_qav4d"]
+[ext_resource type="Texture2D" uid="uid://c7qmrx0jnigvj" path="res://images/play_button.png" id="20_qav4d"]
+[ext_resource type="Texture2D" uid="uid://jgclsp5a46fp" path="res://images/play_button_select_python.png" id="21_7n5i0"]
+[ext_resource type="Texture2D" uid="uid://b2tsl5topfysa" path="res://images/exit_button.png" id="22_7n5i0"]
+[ext_resource type="Texture2D" uid="uid://cgtb7voi4nl02" path="res://images/etoile_secret.png" id="22_ef1fd"]
+[ext_resource type="Texture2D" uid="uid://dc4f5eajc75pi" path="res://images/popup_card_2.png" id="23_bnwd4"]
+[ext_resource type="Texture2D" uid="uid://dxs2bua21k5w1" path="res://images/popup_card_3.png" id="24_a3l5v"]
+[ext_resource type="Texture2D" uid="uid://dgfun5b2tt6nw" path="res://images/popup_card_4.png" id="25_7n5i0"]
+[ext_resource type="Texture2D" uid="uid://bb13ug3kdo86t" path="res://images/popup_card_5.png" id="26_p10r5"]
+
+[sub_resource type="GDScript" id="GDScript_204sq"]
+script/source = "extends TextureButton
+
+@onready var popup = $\"../PopupPanel2\"
+
+func _on_pressed():
+	popup.popup_centered()
+"
+
+[sub_resource type="GDScript" id="GDScript_5lixo"]
+script/source = "extends TextureButton
+
+@onready var popup = $\"../PopupPanel3\"
+
+func _on_pressed():
+	popup.popup_centered()
+"
+
+[sub_resource type="GDScript" id="GDScript_811q4"]
+script/source = "extends TextureButton
+
+@onready var popup = $\"../PopupPanel4\"
+
+func _on_pressed():
+	popup.popup_centered()
+"
+
+[sub_resource type="GDScript" id="GDScript_pmev2"]
+script/source = "extends TextureButton
+
+@onready var popup = $\"../PopupPanel5\"
+
+func _on_pressed():
+	popup.popup_centered()
+"
+
+[sub_resource type="GDScript" id="GDScript_bl8lj"]
+script/source = "extends PopupPanel
+"
+
+[sub_resource type="GDScript" id="GDScript_dj43f"]
+script/source = "extends PopupPanel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Node" type="Node"]
 script = ExtResource("1_mqyi5")
@@ -28,62 +91,68 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_vigqh")
+texture = ExtResource("2_7n5i0")
+expand_mode = 1
 
 [node name="level_1" type="TextureButton" parent="."]
-offset_left = 162.0
-offset_top = 286.0
-offset_right = 307.0
-offset_bottom = 429.0
+offset_left = 158.0
+offset_top = 407.0
+offset_right = 303.0
+offset_bottom = 550.0
 texture_normal = ExtResource("3_mnfc1")
 texture_pressed = ExtResource("4_2aexw")
 texture_hover = ExtResource("5_dj43f")
 ignore_texture_size = true
 stretch_mode = 0
+script = SubResource("GDScript_204sq")
 
 [node name="level_2" type="TextureButton" parent="."]
-offset_left = 335.0
-offset_top = 285.0
-offset_right = 480.0
-offset_bottom = 428.0
+offset_left = 334.0
+offset_top = 407.0
+offset_right = 479.0
+offset_bottom = 550.0
 texture_normal = ExtResource("5_jub6c")
 texture_pressed = ExtResource("6_eewa4")
 texture_hover = ExtResource("8_204sq")
 ignore_texture_size = true
 stretch_mode = 0
+script = SubResource("GDScript_204sq")
 
 [node name="level_3" type="TextureButton" parent="."]
-offset_left = 503.0
-offset_top = 283.0
-offset_right = 648.0
-offset_bottom = 426.0
+offset_left = 504.0
+offset_top = 407.0
+offset_right = 649.0
+offset_bottom = 550.0
 texture_normal = ExtResource("7_bl8lj")
 texture_pressed = ExtResource("8_dj43f")
 texture_hover = ExtResource("11_204sq")
 ignore_texture_size = true
 stretch_mode = 0
+script = SubResource("GDScript_5lixo")
 
 [node name="level_4" type="TextureButton" parent="."]
-offset_left = 678.0
-offset_top = 286.0
-offset_right = 823.0
-offset_bottom = 429.0
+offset_left = 673.0
+offset_top = 407.0
+offset_right = 818.0
+offset_bottom = 550.0
 texture_normal = ExtResource("9_204sq")
 texture_pressed = ExtResource("10_5lixo")
 texture_hover = ExtResource("13_5lixo")
 ignore_texture_size = true
 stretch_mode = 0
+script = SubResource("GDScript_811q4")
 
 [node name="level_5" type="TextureButton" parent="."]
-offset_left = 849.0
-offset_top = 287.0
-offset_right = 994.0
-offset_bottom = 430.0
+offset_left = 841.0
+offset_top = 407.0
+offset_right = 986.0
+offset_bottom = 550.0
 texture_normal = ExtResource("11_811q4")
 texture_pressed = ExtResource("15_811q4")
 texture_hover = ExtResource("16_pmev2")
 ignore_texture_size = true
 stretch_mode = 0
+script = SubResource("GDScript_pmev2")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -106,5 +175,384 @@ texture_normal = ExtResource("4_1wjj6")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="PopupPanel1" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(921, 550)
+script = SubResource("GDScript_bl8lj")
+
+[node name="TextureRect" type="TextureRect" parent="PopupPanel1"]
+anchors_preset = -1
+anchor_left = 0.011000001
+anchor_top = 0.021000002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_qav4d")
+expand_mode = 1
+
+[node name="play_button_1" type="TextureButton" parent="PopupPanel1/TextureRect"]
+layout_mode = 0
+offset_left = 36.999992
+offset_top = 425.0
+offset_right = 77.38646
+offset_bottom = 462.55652
+scale = Vector2(5.9425855, 2.4496403)
+texture_normal = ExtResource("20_qav4d")
+texture_hover = ExtResource("21_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="close_button" type="TextureButton" parent="PopupPanel1/TextureRect"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 28.0
+offset_right = 76.0
+offset_bottom = 75.0
+texture_normal = ExtResource("22_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel1/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 342.0
+offset_right = 120.0
+offset_bottom = 396.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel1/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 261.0
+offset_right = 120.0
+offset_bottom = 315.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel1/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 180.0
+offset_right = 120.0
+offset_bottom = 234.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PopupPanel2" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(921, 550)
+script = SubResource("GDScript_dj43f")
+
+[node name="TextureRect" type="TextureRect" parent="PopupPanel2"]
+anchors_preset = -1
+anchor_left = 0.011000001
+anchor_top = 0.021000002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_bnwd4")
+expand_mode = 1
+
+[node name="play_button_2" type="TextureButton" parent="PopupPanel2/TextureRect"]
+layout_mode = 0
+offset_left = 36.999992
+offset_top = 425.0
+offset_right = 77.38646
+offset_bottom = 462.55652
+scale = Vector2(5.9425855, 2.4496403)
+texture_normal = ExtResource("20_qav4d")
+texture_hover = ExtResource("21_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="close_button" type="TextureButton" parent="PopupPanel2/TextureRect"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 28.0
+offset_right = 76.0
+offset_bottom = 75.0
+texture_normal = ExtResource("22_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel2/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 342.0
+offset_right = 120.0
+offset_bottom = 396.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel2/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 261.0
+offset_right = 120.0
+offset_bottom = 315.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel2/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 180.0
+offset_right = 120.0
+offset_bottom = 234.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PopupPanel3" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(921, 550)
+script = SubResource("GDScript_dj43f")
+
+[node name="TextureRect" type="TextureRect" parent="PopupPanel3"]
+anchors_preset = -1
+anchor_left = 0.011000001
+anchor_top = 0.021000002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_a3l5v")
+expand_mode = 1
+
+[node name="play_button_3" type="TextureButton" parent="PopupPanel3/TextureRect"]
+layout_mode = 0
+offset_left = 36.999992
+offset_top = 425.0
+offset_right = 77.38646
+offset_bottom = 462.55652
+scale = Vector2(5.9425855, 2.4496403)
+texture_normal = ExtResource("20_qav4d")
+texture_hover = ExtResource("21_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="close_button" type="TextureButton" parent="PopupPanel3/TextureRect"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 28.0
+offset_right = 76.0
+offset_bottom = 75.0
+texture_normal = ExtResource("22_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel3/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 342.0
+offset_right = 120.0
+offset_bottom = 396.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel3/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 261.0
+offset_right = 120.0
+offset_bottom = 315.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel3/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 180.0
+offset_right = 120.0
+offset_bottom = 234.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PopupPanel4" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(921, 550)
+script = SubResource("GDScript_dj43f")
+
+[node name="TextureRect" type="TextureRect" parent="PopupPanel4"]
+anchors_preset = -1
+anchor_left = 0.011000001
+anchor_top = 0.021000002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_7n5i0")
+expand_mode = 1
+
+[node name="play_button_4" type="TextureButton" parent="PopupPanel4/TextureRect"]
+layout_mode = 0
+offset_left = 36.999992
+offset_top = 425.0
+offset_right = 77.38646
+offset_bottom = 462.55652
+scale = Vector2(5.9425855, 2.4496403)
+texture_normal = ExtResource("20_qav4d")
+texture_hover = ExtResource("21_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="close_button" type="TextureButton" parent="PopupPanel4/TextureRect"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 28.0
+offset_right = 76.0
+offset_bottom = 75.0
+texture_normal = ExtResource("22_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel4/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 342.0
+offset_right = 120.0
+offset_bottom = 396.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel4/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 261.0
+offset_right = 120.0
+offset_bottom = 315.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel4/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 180.0
+offset_right = 120.0
+offset_bottom = 234.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PopupPanel5" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(921, 550)
+script = SubResource("GDScript_dj43f")
+
+[node name="TextureRect" type="TextureRect" parent="PopupPanel5"]
+anchors_preset = -1
+anchor_left = 0.011000001
+anchor_top = 0.021000002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_p10r5")
+expand_mode = 1
+
+[node name="play_button_5" type="TextureButton" parent="PopupPanel5/TextureRect"]
+layout_mode = 0
+offset_left = 36.999992
+offset_top = 425.0
+offset_right = 77.38646
+offset_bottom = 462.55652
+scale = Vector2(5.9425855, 2.4496403)
+texture_normal = ExtResource("20_qav4d")
+texture_hover = ExtResource("21_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="close_button" type="TextureButton" parent="PopupPanel5/TextureRect"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 28.0
+offset_right = 76.0
+offset_bottom = 75.0
+texture_normal = ExtResource("22_7n5i0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel5/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 342.0
+offset_right = 120.0
+offset_bottom = 396.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel5/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 261.0
+offset_right = 120.0
+offset_bottom = 315.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel5/TextureRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 180.0
+offset_right = 120.0
+offset_bottom = 234.0
+texture = ExtResource("22_ef1fd")
+expand_mode = 1
+stretch_mode = 4
+
 [connection signal="pressed" from="level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="level_2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="level_3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="level_4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="level_5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="PopupPanel1/TextureRect/play_button_1" to="." method="_on_play_button_1_pressed"]
+[connection signal="pressed" from="PopupPanel1/TextureRect/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="PopupPanel2/TextureRect/play_button_2" to="." method="_on_play_button_2_pressed"]
+[connection signal="pressed" from="PopupPanel2/TextureRect/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="PopupPanel3/TextureRect/play_button_3" to="." method="_on_play_button_3_pressed"]
+[connection signal="pressed" from="PopupPanel3/TextureRect/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="PopupPanel4/TextureRect/play_button_4" to="." method="_on_play_button_4_pressed"]
+[connection signal="pressed" from="PopupPanel4/TextureRect/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="PopupPanel5/TextureRect/play_button_5" to="." method="_on_play_button_5_pressed"]
+[connection signal="pressed" from="PopupPanel5/TextureRect/close_button" to="." method="_on_close_button_pressed"]

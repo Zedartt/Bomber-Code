@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://vjed5k6r4uf1"]
+[gd_scene load_steps=9 format=3 uid="uid://vjed5k6r4uf1"]
 
 [ext_resource type="Script" uid="uid://nstb35f75sde" path="res://main_menu.gd" id="1_eiy7p"]
-[ext_resource type="Texture2D" uid="uid://dbh6klom3fn2k" path="res://images/background.jpg" id="1_i26rj"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_i26rj"]
-font_size = 90
-font_color = Color(1, 1, 0, 1)
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://bo47sadxi8aap" path="res://images/explosif-menu.png" id="2_h7a2f"]
+[ext_resource type="Texture2D" uid="uid://df684aylq87c4" path="res://images/logo_bomber_code.png" id="3_qoqlk"]
+[ext_resource type="Texture2D" uid="uid://0mmbn8s06t3t" path="res://images/leave_button.png" id="4_iwfq2"]
+[ext_resource type="Texture2D" uid="uid://db0a6qr4733b7" path="res://images/leave_button_select.png" id="5_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://c7qmrx0jnigvj" path="res://images/play_button.png" id="6_cqjrg"]
+[ext_resource type="Texture2D" uid="uid://bcn8gltf3ully" path="res://images/play_button_select.png" id="7_e2xy7"]
+[ext_resource type="AudioStream" uid="uid://cucx8xn75syo1" path="res://sound/Click.ogg" id="8_e2xy7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -23,48 +23,51 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -91.0
+offset_right = 213.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_i26rj")
-expand_mode = 5
+texture = ExtResource("2_h7a2f")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="Title" type="Label" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -295.0
-offset_top = 72.0
-offset_right = 295.0
-offset_bottom = 196.0
+offset_left = -250.0
+offset_top = -117.0
+offset_right = 250.0
+offset_bottom = 383.0
 grow_horizontal = 2
-text = "Bomber Code"
-label_settings = SubResource("LabelSettings_i26rj")
+texture = ExtResource("3_qoqlk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -101.0
-offset_top = -265.0
-offset_right = 102.0
-offset_bottom = -101.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 10
+[node name="leave_buton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 497.0
+offset_right = 785.0
+offset_bottom = 577.0
+texture_normal = ExtResource("4_iwfq2")
+texture_hover = ExtResource("5_7r1g0")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Start" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Start"
+[node name="play_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 497.0
+offset_right = 449.0
+offset_bottom = 577.0
+texture_normal = ExtResource("6_cqjrg")
+texture_hover = ExtResource("7_e2xy7")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Exit"
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_e2xy7")
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="leave_buton" to="." method="_on_leave_buton_pressed"]
+[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]

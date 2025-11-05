@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bfdkmmuoaorhe"]
 
-[ext_resource type="Texture2D" uid="uid://cn5i0n0jdsgm3" path="res://images/fond_orange.jpeg" id="1_76ulo"]
 [ext_resource type="Script" uid="uid://drhq3hhg2ev43" path="res://select_world.gd" id="1_qklif"]
+[ext_resource type="Texture2D" uid="uid://cttkrka82m4yr" path="res://images/background.png" id="2_fj5ni"]
 [ext_resource type="Texture2D" uid="uid://bxnobhspp8pxu" path="res://images/python.png" id="3_lyd0n"]
 [ext_resource type="Texture2D" uid="uid://e2poaj4uqkk3" path="res://images/python_pressed.png" id="4_gwbrm"]
 [ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="4_ooxhb"]
@@ -22,13 +22,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_76ulo")
+texture = ExtResource("2_fj5ni")
+expand_mode = 1
 
 [node name="world_1" type="TextureButton" parent="."]
 offset_left = 82.0
-offset_top = 261.0
+offset_top = 370.0
 offset_right = 242.0
-offset_bottom = 416.0
+offset_bottom = 525.0
 scale = Vector2(1.1744618, 1.1719654)
 texture_normal = ExtResource("3_lyd0n")
 texture_pressed = ExtResource("4_gwbrm")
@@ -48,9 +49,9 @@ horizontal_alignment = 1
 
 [node name="world_2" type="TextureButton" parent="."]
 offset_left = 287.0
-offset_top = 261.0
+offset_top = 370.0
 offset_right = 447.0
-offset_bottom = 416.0
+offset_bottom = 525.0
 scale = Vector2(1.1744618, 1.1719654)
 texture_normal = ExtResource("6_fj5ni")
 texture_pressed = ExtResource("7_5l0qf")
@@ -70,9 +71,9 @@ horizontal_alignment = 1
 
 [node name="world_3" type="TextureButton" parent="."]
 offset_left = 492.0
-offset_top = 263.0
+offset_top = 372.0
 offset_right = 652.0
-offset_bottom = 418.0
+offset_bottom = 527.0
 scale = Vector2(1.1744618, 1.1719654)
 texture_normal = ExtResource("9_fj5ni")
 ignore_texture_size = true
@@ -90,9 +91,9 @@ horizontal_alignment = 1
 
 [node name="world_4" type="TextureButton" parent="."]
 offset_left = 687.0
-offset_top = 263.0
+offset_top = 372.0
 offset_right = 847.0
-offset_bottom = 418.0
+offset_bottom = 527.0
 scale = Vector2(1.1744618, 1.1719654)
 texture_normal = ExtResource("10_5l0qf")
 ignore_texture_size = true
@@ -110,9 +111,9 @@ horizontal_alignment = 1
 
 [node name="world_5" type="TextureButton" parent="."]
 offset_left = 888.0
-offset_top = 263.0
+offset_top = 372.0
 offset_right = 1048.0
-offset_bottom = 418.0
+offset_bottom = 527.0
 scale = Vector2(1.1744618, 1.1719654)
 texture_normal = ExtResource("11_eq6k3")
 ignore_texture_size = true
@@ -146,8 +147,9 @@ offset_top = 81.0
 offset_right = 150.0
 offset_bottom = 123.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 60
-text = "Monde de languages"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 67
+text = "Monde de langages"
 
 [connection signal="pressed" from="world_1" to="." method="_on_world_1_pressed"]
 [connection signal="pressed" from="world_2" to="." method="_on_world_2_pressed"]
