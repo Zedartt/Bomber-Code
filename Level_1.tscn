@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="3_smwyr"]
 [ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="5_jikk4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u16a4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smwyr"]
 texture = ExtResource("1_65pcf")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
@@ -105,7 +105,7 @@ texture_region_size = Vector2i(69, 68)
 8:4/0 = 0
 9:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smwyr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyeet"]
 texture = ExtResource("2_u16a4")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -114,9 +114,9 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_jikk4"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_u16a4")
+sources/2 = SubResource("TileSetAtlasSource_smwyr")
 sources/3 = SubResource("TileSetAtlasSource_tedvs")
-sources/6 = SubResource("TileSetAtlasSource_smwyr")
+sources/6 = SubResource("TileSetAtlasSource_gyeet")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kidjj"]
 size = Vector2(46, 60)
@@ -170,6 +170,7 @@ offset_bottom = 93.0
 texture_normal = ExtResource("5_jikk4")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="monter" type="Button" parent="."]
 offset_left = 668.0
@@ -178,6 +179,7 @@ offset_right = 761.0
 offset_bottom = 197.0
 theme_override_font_sizes/font_size = 20
 text = "monter()"
+metadata/_edit_use_anchors_ = true
 
 [node name="gauche" type="Button" parent="."]
 offset_left = 668.0
@@ -186,6 +188,7 @@ offset_right = 761.0
 offset_bottom = 314.0
 theme_override_font_sizes/font_size = 20
 text = "gauche()"
+metadata/_edit_use_anchors_ = true
 
 [node name="descendre" type="Button" parent="."]
 offset_left = 668.0
@@ -194,6 +197,7 @@ offset_right = 761.0
 offset_bottom = 255.0
 theme_override_font_sizes/font_size = 20
 text = "descendre()"
+metadata/_edit_use_anchors_ = true
 
 [node name="droite" type="Button" parent="."]
 offset_left = 668.0
@@ -202,6 +206,7 @@ offset_right = 761.0
 offset_bottom = 369.0
 theme_override_font_sizes/font_size = 20
 text = "droite()"
+metadata/_edit_use_anchors_ = true
 
 [node name="Start" type="Button" parent="."]
 offset_left = 845.0
@@ -210,6 +215,7 @@ offset_right = 938.0
 offset_bottom = 557.0
 theme_override_font_sizes/font_size = 20
 text = "Start"
+metadata/_edit_use_anchors_ = true
 
 [node name="Reset" type="Button" parent="."]
 offset_left = 157.0
@@ -218,17 +224,20 @@ offset_right = 250.0
 offset_bottom = 556.0
 theme_override_font_sizes/font_size = 20
 text = "Reset"
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 857.0
 offset_top = 145.0
 offset_right = 1084.0
 offset_bottom = 479.0
+metadata/_edit_use_anchors_ = true
 
 [node name="ItemList" type="ItemList" parent="TextureRect"]
 layout_mode = 0
 offset_right = 225.0
 offset_bottom = 335.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Clear" type="Button" parent="."]
 offset_left = 986.0
@@ -237,6 +246,7 @@ offset_right = 1079.0
 offset_bottom = 557.0
 theme_override_font_sizes/font_size = 20
 text = "Clear"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="monter" to="." method="move_up"]
