@@ -163,6 +163,7 @@ func move_right_animated():
 func clear_script():
 	player_script.clear()
 	print("🔄 Script réinitialisé")
+	command_list.clear()
 
 
 func _on_reset_pressed():
