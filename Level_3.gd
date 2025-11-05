@@ -32,8 +32,8 @@ func _ready():
 	_place_door()
 
 func _place_player():
-	grid_x = 6
-	grid_y = -1  # le joueur est à la case (6, -1)
+	grid_x = 0
+	grid_y = 2  # le joueur est à la case (0, 2)
 	
 	var grid_pos = Vector2(
 		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
@@ -48,8 +48,8 @@ func _place_door():
 	var door = Sprite2D.new()
 	door.texture = load("res://images/door.png")
 	
-	var grid_x = 0
-	var grid_y = 2  # porte en (0, 2)
+	var grid_x = 6
+	var grid_y = 2    # la porte est à la case (6, 2)
 	
 	var grid_pos = Vector2(
 		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
@@ -63,7 +63,7 @@ func _place_door():
 		door.scale = Vector2(scale_factor, scale_factor)
 	
 	add_child(door)
-	print("🚪 Porte placée à la case (0, 2)")
+	print("🚪 Porte placée à la case (6, 2)")
 
 # ========================================
 # SYSTÈME D'AJOUT DE COMMANDES
@@ -136,13 +136,24 @@ func execute_command(cmd: String):
 		print("❌ Commande inconnue : ", cmd)
 
 # ========================================
-# MOUVEMENTS ANIMÉS AVEC LIMITES
+# MOUVEMENTS ANIMÉS AVEC LIMITES + OBSTACLES
 # ========================================
+
+# Cases bloquées (murs)
+var obstacles = [
+	Vector2(3, 1),
+	Vector2(3, 2),
+	Vector2(3, 3)
+]
+
+func is_blocked(x: int, y: int) -> bool:
+	return Vector2(x, y) in obstacles
+
 
 func move_up_animated():
 	var new_y = grid_y - 1
 	
-	if new_y < MIN_ROW:
+	if new_y < MIN_ROW or is_blocked(grid_x, new_y):
 		print("❌ Impossible de monter : mur !")
 		return
 	
@@ -157,10 +168,11 @@ func move_up_animated():
 	current_position = target
 	await tween.finished
 
+
 func move_down_animated():
 	var new_y = grid_y + 1
 	
-	if new_y > MAX_ROW:
+	if new_y > MAX_ROW or is_blocked(grid_x, new_y):
 		print("❌ Impossible de descendre : mur !")
 		return
 	
@@ -175,10 +187,11 @@ func move_down_animated():
 	current_position = target
 	await tween.finished
 
+
 func move_left_animated():
 	var new_x = grid_x - 1
 	
-	if new_x < MIN_COL:
+	if new_x < MIN_COL or is_blocked(new_x, grid_y):
 		print("❌ Impossible d'aller à gauche : mur !")
 		return
 	
@@ -193,10 +206,11 @@ func move_left_animated():
 	current_position = target
 	await tween.finished
 
+
 func move_right_animated():
 	var new_x = grid_x + 1
 	
-	if new_x > MAX_COL:
+	if new_x > MAX_COL or is_blocked(new_x, grid_y):
 		print("❌ Impossible d'aller à droite : mur !")
 		return
 	
@@ -210,6 +224,7 @@ func move_right_animated():
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+
 
 # ========================================
 # RESET
@@ -227,7 +242,7 @@ func _on_reset_pressed():
 
 func reset_player_position():
 	grid_x = 6
-	grid_y = -1
+	grid_y = 5
 	
 	var grid_pos = Vector2(
 		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
@@ -246,7 +261,8 @@ func _clear_list():
 # ========================================
 
 func check_victory():
-	if grid_x == 0 and grid_y == 2:
+	# La porte est à la case (6, -1)
+	if grid_x == 6 and grid_y == 2:
 		print("🎉 VICTOIRE !")
 		show_victory_screen()
 	else:
