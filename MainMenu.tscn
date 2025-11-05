@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://vjed5k6r4uf1"]
+[gd_scene load_steps=7 format=3 uid="uid://vjed5k6r4uf1"]
 
 [ext_resource type="Script" uid="uid://nstb35f75sde" path="res://main_menu.gd" id="1_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://bo47sadxi8aap" path="res://images/explosif-menu.png" id="2_h7a2f"]
 [ext_resource type="Texture2D" uid="uid://df684aylq87c4" path="res://images/logo_bomber_code.png" id="3_qoqlk"]
-[ext_resource type="Texture2D" uid="uid://0mmbn8s06t3t" path="res://images/leave_button.png" id="4_iwfq2"]
-[ext_resource type="Texture2D" uid="uid://db0a6qr4733b7" path="res://images/leave_button_select.png" id="5_7r1g0"]
-[ext_resource type="Texture2D" uid="uid://c7qmrx0jnigvj" path="res://images/play_button.png" id="6_cqjrg"]
+[ext_resource type="Texture2D" uid="uid://dkhqqske5cye4" path="res://images/Start_button.png" id="4_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://ccfi0gv2lmtnc" path="res://images/shop_button.png" id="6_7r1g0"]
 [ext_resource type="Texture2D" uid="uid://bcn8gltf3ully" path="res://images/play_button_select.png" id="7_e2xy7"]
-[ext_resource type="AudioStream" uid="uid://cucx8xn75syo1" path="res://sound/Click.ogg" id="8_e2xy7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -44,30 +42,26 @@ offset_bottom = 383.0
 grow_horizontal = 2
 texture = ExtResource("3_qoqlk")
 
-[node name="leave_buton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 643.0
-offset_top = 497.0
-offset_right = 785.0
-offset_bottom = 577.0
-texture_normal = ExtResource("4_iwfq2")
-texture_hover = ExtResource("5_7r1g0")
-ignore_texture_size = true
-stretch_mode = 4
-
 [node name="play_button" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 306.0
+offset_left = 473.0
 offset_top = 497.0
-offset_right = 449.0
-offset_bottom = 577.0
-texture_normal = ExtResource("6_cqjrg")
+offset_right = 636.0
+offset_bottom = 573.0
+texture_normal = ExtResource("4_7r1g0")
 texture_hover = ExtResource("7_e2xy7")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_e2xy7")
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 497.0
+offset_right = 765.0
+offset_bottom = 571.0
+texture_normal = ExtResource("6_7r1g0")
+ignore_texture_size = true
+stretch_mode = 5
 
-[connection signal="pressed" from="leave_buton" to="." method="_on_leave_buton_pressed"]
 [connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfdkmmuoaorhe"]
+[gd_scene load_steps=19 format=3 uid="uid://bfdkmmuoaorhe"]
 
 [ext_resource type="Script" uid="uid://drhq3hhg2ev43" path="res://select_world.gd" id="1_qklif"]
 [ext_resource type="Texture2D" uid="uid://cttkrka82m4yr" path="res://images/background.png" id="2_fj5ni"]
@@ -6,12 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://e2poaj4uqkk3" path="res://images/python_pressed.png" id="4_gwbrm"]
 [ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="4_ooxhb"]
 [ext_resource type="Texture2D" uid="uid://cafuy032u3v4x" path="res://images/python_select.png" id="5_ohm6g"]
+[ext_resource type="Texture2D" uid="uid://kj3f25c1ajhe" path="res://images/title_algo.png" id="6_eq6k3"]
 [ext_resource type="Texture2D" uid="uid://d3a67lwdxfe05" path="res://images/java.png" id="6_fj5ni"]
 [ext_resource type="Texture2D" uid="uid://cllfmwn8rshyo" path="res://images/java_pressed.png" id="7_5l0qf"]
 [ext_resource type="Texture2D" uid="uid://bc6bt3fwqt7v2" path="res://images/java_select.png" id="8_eq6k3"]
 [ext_resource type="Texture2D" uid="uid://bqv3grlxlutnh" path="res://images/javascript_secret.png" id="9_fj5ni"]
 [ext_resource type="Texture2D" uid="uid://b43xm1grp5uy" path="res://images/php_secret.png" id="10_5l0qf"]
+[ext_resource type="Texture2D" uid="uid://mohidiswppfv" path="res://images/title_python.png" id="10_8krhw"]
 [ext_resource type="Texture2D" uid="uid://g88gplr0do08" path="res://images/htmlcss_secret.png" id="11_eq6k3"]
+[ext_resource type="Texture2D" uid="uid://dsrlkakqe0yp3" path="res://images/title_javascript.png" id="12_uwn7t"]
+[ext_resource type="Texture2D" uid="uid://bnox26f2x22ro" path="res://images/titre_world.png" id="14_8krhw"]
+[ext_resource type="Texture2D" uid="uid://dcmyiaolrvjtc" path="res://images/title_php.png" id="14_leat0"]
+[ext_resource type="Texture2D" uid="uid://2noxjjnuqavx" path="res://images/title_htmlcss.png" id="16_os6ws"]
 
 [node name="SelectWorld" type="Node"]
 script = ExtResource("1_qklif")
@@ -37,15 +43,14 @@ texture_hover = ExtResource("5_ohm6g")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="world_1"]
+[node name="TextureRect3" type="TextureRect" parent="world_1"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 155.0
-offset_right = 131.0
-offset_bottom = 190.0
-theme_override_font_sizes/font_size = 25
-text = "PYTHON"
-horizontal_alignment = 1
+offset_left = -22.1378
+offset_top = 123.72381
+offset_right = 182.8622
+offset_bottom = 219.72382
+texture = ExtResource("6_eq6k3")
+expand_mode = 1
 
 [node name="world_2" type="TextureButton" parent="."]
 offset_left = 287.0
@@ -59,15 +64,14 @@ texture_hover = ExtResource("8_eq6k3")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="world_2"]
+[node name="TextureRect3" type="TextureRect" parent="world_2"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 155.0
-offset_right = 113.0
-offset_bottom = 178.0
-theme_override_font_sizes/font_size = 25
-text = "JAVA"
-horizontal_alignment = 1
+offset_left = -14.474715
+offset_top = 133.10974
+offset_right = 170.29079
+offset_bottom = 219.72382
+texture = ExtResource("10_8krhw")
+expand_mode = 1
 
 [node name="world_3" type="TextureButton" parent="."]
 offset_left = 492.0
@@ -79,15 +83,14 @@ texture_normal = ExtResource("9_fj5ni")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="world_3"]
+[node name="TextureRect3" type="TextureRect" parent="world_3"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 155.0
-offset_right = 152.0
-offset_bottom = 190.0
-theme_override_font_sizes/font_size = 25
-text = "JAVASCRIPT"
-horizontal_alignment = 1
+offset_left = -14.474715
+offset_top = 133.10974
+offset_right = 170.29079
+offset_bottom = 219.72382
+texture = ExtResource("12_uwn7t")
+expand_mode = 1
 
 [node name="world_4" type="TextureButton" parent="."]
 offset_left = 687.0
@@ -99,15 +102,14 @@ texture_normal = ExtResource("10_5l0qf")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="world_4"]
+[node name="TextureRect3" type="TextureRect" parent="world_4"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 155.0
-offset_right = 131.0
-offset_bottom = 190.0
-theme_override_font_sizes/font_size = 25
-text = "PHP"
-horizontal_alignment = 1
+offset_left = -14.474715
+offset_top = 133.10974
+offset_right = 170.29079
+offset_bottom = 219.72382
+texture = ExtResource("14_leat0")
+expand_mode = 1
 
 [node name="world_5" type="TextureButton" parent="."]
 offset_left = 888.0
@@ -119,15 +121,14 @@ texture_normal = ExtResource("11_eq6k3")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="world_5"]
+[node name="TextureRect3" type="TextureRect" parent="world_5"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 155.0
-offset_right = 140.0
-offset_bottom = 190.0
-theme_override_font_sizes/font_size = 25
-text = "HTML CSS"
-horizontal_alignment = 1
+offset_left = -14.474715
+offset_top = 133.10974
+offset_right = 170.29079
+offset_bottom = 219.72382
+texture = ExtResource("16_os6ws")
+expand_mode = 1
 
 [node name="back" type="TextureButton" parent="."]
 offset_left = 12.0
@@ -138,18 +139,12 @@ texture_normal = ExtResource("4_ooxhb")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -149.0
-offset_top = 81.0
-offset_right = 150.0
-offset_bottom = 123.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 67
-text = "Monde de langages"
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 287.0
+offset_top = -33.0
+offset_right = 893.0
+offset_bottom = 280.0
+texture = ExtResource("14_8krhw")
 
 [connection signal="pressed" from="world_1" to="." method="_on_world_1_pressed"]
 [connection signal="pressed" from="world_2" to="." method="_on_world_2_pressed"]

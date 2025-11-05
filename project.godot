@@ -14,6 +14,11 @@ config/name="Bomber Code"
 run/main_scene="uid://vjed5k6r4uf1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+"<<<<<<<HEAD[autoload]SceneTransition"="*res://autoloads/scene_transition.tscn"
+
+[autoload]
+
+SceneTransition="*res://autoloads/scene_transition.tscn"
 
 [display]
 
