@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="7_hy7jq"]
 [ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="8_hy7jq"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02vam"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hy7jq"]
 texture = ExtResource("2_mfdj8")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hshm6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02vam"]
 texture = ExtResource("3_gcf6h")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
@@ -57,7 +57,7 @@ texture_region_size = Vector2i(64, 64)
 8:3/0 = 0
 9:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjop3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hshm6"]
 texture = ExtResource("4_ly6h1")
 separation = Vector2i(28, 0)
 texture_region_size = Vector2i(69, 68)
@@ -112,7 +112,7 @@ texture_region_size = Vector2i(69, 68)
 8:4/0 = 0
 9:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dh6nl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjop3"]
 texture = ExtResource("5_hy7jq")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -121,10 +121,10 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_s0f3a"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_hshm6")
-sources/3 = SubResource("TileSetAtlasSource_fjop3")
-sources/6 = SubResource("TileSetAtlasSource_dh6nl")
-sources/0 = SubResource("TileSetAtlasSource_02vam")
+sources/2 = SubResource("TileSetAtlasSource_02vam")
+sources/3 = SubResource("TileSetAtlasSource_hshm6")
+sources/6 = SubResource("TileSetAtlasSource_fjop3")
+sources/0 = SubResource("TileSetAtlasSource_hy7jq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02vam"]
 size = Vector2(46, 60)

@@ -255,8 +255,7 @@ func can_move_in_direction(direction: String) -> bool:
 # Cases bloquées (murs)
 var obstacles = [
 	Vector2(3, 1),
-	Vector2(3, 2),
-	Vector2(3, 3)
+	Vector2(2, 4),
 ]
 
 func is_blocked(x: int, y: int) -> bool:
