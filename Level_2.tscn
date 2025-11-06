@@ -1,16 +1,12 @@
-<<<<<<< HEAD
-[gd_scene load_steps=19 format=3 uid="uid://c8cnmv6xbmtxs"]
 
+[gd_scene load_steps=19 format=3 uid="uid://c8cnmv6xbmtxs"]
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="1_1n7cm"]
 [ext_resource type="Script" uid="uid://ksg2rglwx42t" path="res://Level_2.gd" id="1_vx6px"]
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="2_kgqac"]
 [ext_resource type="Texture2D" uid="uid://c7xeejs4w2hqn" path="res://images/background_lvl.png" id="2_lgjvw"]
-=======
 [gd_scene load_steps=35 format=3 uid="uid://c8cnmv6xbmtxs"]
-
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="1_1n7cm"]
 [ext_resource type="Script" uid="uid://ksg2rglwx42t" path="res://Level_2.gd" id="1_vx6px"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 [ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="4_kgqac"]
 [ext_resource type="Texture2D" uid="uid://b8ty1rxj54wq6" path="res://images/tileSet_grass.png" id="4_oyhbj"]
 [ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="5_lgjvw"]
@@ -22,12 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://7tejyvrlsxyb" path="res://images/spritesheet_right_lvl2.png" id="9_4x2ic"]
 [ext_resource type="Texture2D" uid="uid://ut38cfgb636d" path="res://images/spritesheet_idle_lvl2.png" id="9_576va"]
 [ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="9_oyhbj"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="11_eiivm"]
 [ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="12_p4ecc"]
-=======
 [ext_resource type="Texture2D" uid="uid://cpygfd337cyg2" path="res://images/spritesheet_up_lvl2.png" id="10_576va"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vx6px"]
 texture = ExtResource("4_kgqac")

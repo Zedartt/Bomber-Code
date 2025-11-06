@@ -1,17 +1,11 @@
-<<<<<<< HEAD
-[gd_scene load_steps=19 format=3 uid="uid://bsy45xu20s63n"]
-=======
 [gd_scene load_steps=35 format=3 uid="uid://bsy45xu20s63n"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [ext_resource type="Texture2D" uid="uid://b8ty1rxj54wq6" path="res://images/tileSet_grass.png" id="1_65pcf"]
 [ext_resource type="Script" uid="uid://b4ydtxvxp4sye" path="res://Level_1.gd" id="1_a0j4s"]
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="1_kidjj"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="1_n0r7v"]
 [ext_resource type="Texture2D" uid="uid://c7xeejs4w2hqn" path="res://images/background_lvl.png" id="2_4s4xf"]
-=======
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
+
 [ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="2_tedvs"]
 [ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="2_u16a4"]
 [ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="3_smwyr"]
@@ -21,13 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://crehmq3a6n36l" path="res://images/lvl1_front_state2.png" id="8_6fba8"]
 [ext_resource type="Texture2D" uid="uid://bdboivkntbnvj" path="res://images/spritesheet_left_lvl1.png" id="8_p7bnq"]
 [ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="8_tedvs"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="9_2wi7h"]
 [ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="10_4s4xf"]
 [ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="10_p7bnq"]
-=======
 [ext_resource type="Texture2D" uid="uid://ci4ixi77dsvbp" path="res://images/spritesheet_up_lvl1.png" id="9_p7bnq"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wi7h"]
 texture = ExtResource("2_tedvs")
