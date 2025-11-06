@@ -1,0 +1,275 @@
+[gd_scene load_steps=15 format=3 uid="uid://csntp1md88ud5"]
+
+[ext_resource type="Script" uid="uid://tlmphcuo4ptm" path="res://Level_4.gd" id="1_yqdjl"]
+[ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="2_mfdj8"]
+[ext_resource type="Texture2D" uid="uid://b8ty1rxj54wq6" path="res://images/tileSet_grass.png" id="3_gcf6h"]
+[ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="4_ly6h1"]
+[ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="5_hy7jq"]
+[ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="6_ly6h1"]
+[ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="7_hy7jq"]
+[ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="8_hy7jq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02vam"]
+texture = ExtResource("2_mfdj8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hshm6"]
+texture = ExtResource("3_gcf6h")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjop3"]
+texture = ExtResource("4_ly6h1")
+separation = Vector2i(28, 0)
+texture_region_size = Vector2i(69, 68)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dh6nl"]
+texture = ExtResource("5_hy7jq")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_s0f3a"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_hshm6")
+sources/3 = SubResource("TileSetAtlasSource_fjop3")
+sources/6 = SubResource("TileSetAtlasSource_dh6nl")
+sources/0 = SubResource("TileSetAtlasSource_02vam")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02vam"]
+size = Vector2(46, 60)
+
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_yqdjl")
+
+[node name="monter" type="Button" parent="."]
+offset_left = 668.0
+offset_top = 161.0
+offset_right = 761.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 20
+text = "monter()"
+metadata/_edit_use_anchors_ = true
+
+[node name="gauche" type="Button" parent="."]
+offset_left = 668.0
+offset_top = 278.0
+offset_right = 761.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 20
+text = "gauche()"
+metadata/_edit_use_anchors_ = true
+
+[node name="descendre" type="Button" parent="."]
+offset_left = 668.0
+offset_top = 219.0
+offset_right = 761.0
+offset_bottom = 255.0
+theme_override_font_sizes/font_size = 20
+text = "descendre()"
+metadata/_edit_use_anchors_ = true
+
+[node name="droite" type="Button" parent="."]
+offset_left = 668.0
+offset_top = 333.0
+offset_right = 761.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 20
+text = "droite()"
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="Button" parent="."]
+offset_left = 845.0
+offset_top = 521.0
+offset_right = 938.0
+offset_bottom = 557.0
+theme_override_font_sizes/font_size = 20
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="Reset" type="Button" parent="."]
+offset_left = 192.0
+offset_top = 602.0
+offset_right = 285.0
+offset_bottom = 638.0
+theme_override_font_sizes/font_size = 20
+text = "Reset"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_while" type="Button" parent="."]
+offset_left = 668.0
+offset_top = 386.0
+offset_right = 812.0
+offset_bottom = 422.0
+theme_override_font_sizes/font_size = 20
+text = "while no_wall:"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 857.0
+offset_top = 145.0
+offset_right = 1084.0
+offset_bottom = 479.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemList" type="ItemList" parent="TextureRect"]
+layout_mode = 0
+offset_right = 225.0
+offset_bottom = 335.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Clear" type="Button" parent="."]
+offset_left = 986.0
+offset_top = 521.0
+offset_right = 1079.0
+offset_bottom = 557.0
+theme_override_font_sizes/font_size = 20
+text = "Clear"
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(0, 150)
+tile_set = SubResource("TileSet_s0f3a")
+format = 2
+layer_0/tile_data = PackedInt32Array(131072, 6, 0, 131073, 6, 0, 131074, 6, 0, 131076, 6, 0, 131077, 6, 0, 65541, 6, 0, 0, 6, 0, 65536, 6, 0, 65537, 6, 0, 65538, 6, 0, 2, 6, 0, 1, 6, 0, 3, 6, 0, 4, 6, 0, 65540, 6, 0, 5, 6, 0, 196608, 6, 0, 262144, 6, 0, 262145, 6, 0, 196609, 6, 0, 196610, 6, 0, 262147, 6, 0, 262148, 6, 0, 196612, 6, 0, 196613, 6, 0, 262149, 6, 0, 262146, 0, 0, 6, 6, 0, 65542, 6, 0, 262150, 6, 0, 131078, 6, 0, 196614, 6, 0, 327680, 6, 0, 327681, 6, 0, 327682, 6, 0, 327683, 6, 0, 327684, 6, 0, 327685, 6, 0, 327686, 6, 0, -65536, 6, 0, -65535, 6, 0, -65534, 6, 0, -65533, 6, 0, -65532, 6, 0, -65531, 6, 0, -65530, 6, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 327687, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, -65529, 0, 0, -131065, 0, 0, -131066, 0, 0, -131067, 0, 0, -131068, 0, 0, -131069, 0, 0, -131070, 0, 0, -131071, 0, 0, -131072, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 131075, 6, 0, 196611, 6, 0, 65539, 0, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("6_ly6h1")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-1, -2.0000002)
+scale = Vector2(0.6167128, 0.61308706)
+texture = ExtResource("7_hy7jq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_02vam")
+
+[node name="up" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0, -50)
+target_position = Vector2(0, -50)
+hit_from_inside = true
+
+[node name="down" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0, 50)
+hit_from_inside = true
+
+[node name="left" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(-50, 0)
+target_position = Vector2(-50, 0)
+hit_from_inside = true
+
+[node name="right" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(50, 0)
+target_position = Vector2(50, 0)
+hit_from_inside = true
+
+[node name="back" type="TextureButton" parent="."]
+offset_left = 1046.0
+offset_top = 19.0
+offset_right = 1116.0
+offset_bottom = 91.0
+texture_normal = ExtResource("8_hy7jq")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="monter" to="." method="_on_btn_up_pressed"]
+[connection signal="pressed" from="gauche" to="." method="_on_btn_left_pressed"]
+[connection signal="pressed" from="descendre" to="." method="_on_btn_down_pressed"]
+[connection signal="pressed" from="droite" to="." method="_on_btn_right_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="btn_while" to="." method="_on_btn_while_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_clear_list"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
