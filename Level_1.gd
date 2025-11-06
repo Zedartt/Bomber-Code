@@ -2,6 +2,8 @@ extends Node
 
 @onready var tilemap := $TileMap
 @onready var player := $CharacterBody2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var anim: AnimatedSprite2D = $CharacterBody2D/Sprite2D
 @onready var command_list : ItemList = $TextureRect/ItemList
 
 const GRID_WIDTH := 7
@@ -205,11 +207,13 @@ func move_up_animated():
 		target_cell.x * CELL_SIZE + CELL_SIZE / 2.0,
 		target_cell.y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
+	anim.play("up")
 
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	anim.play("idle")
 
 
 func move_down_animated():
@@ -225,11 +229,13 @@ func move_down_animated():
 		target_cell.x * CELL_SIZE + CELL_SIZE / 2.0,
 		target_cell.y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
+	anim.play("down")
 
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	anim.play("idle")
 
 func move_left_animated():
 	var target_cell := Vector2i(grid_x - 1, grid_y)
@@ -244,11 +250,13 @@ func move_left_animated():
 		target_cell.x * CELL_SIZE + CELL_SIZE / 2.0,
 		target_cell.y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
+	anim.play("left")
 
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	anim.play("idle")
 
 func move_right_animated():
 	var target_cell := Vector2i(grid_x + 1, grid_y)
@@ -263,11 +271,13 @@ func move_right_animated():
 		target_cell.x * CELL_SIZE + CELL_SIZE / 2.0,
 		target_cell.y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
+	anim.play("right")
 
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	anim.play("idle")
 
 func clear_script():
 	player_script.clear()

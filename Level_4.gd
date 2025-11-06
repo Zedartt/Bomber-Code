@@ -2,6 +2,8 @@ extends Node
 
 @onready var tilemap := $TileMap
 @onready var player := $CharacterBody2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var anim: AnimatedSprite2D = $CharacterBody2D/Sprite2D
 @onready var command_list : ItemList = $TextureRect/ItemList
 
 const GRID_WIDTH := 7
@@ -263,21 +265,29 @@ func is_blocked(x: int, y: int) -> bool:
 
 func move_up_animated():
 	var new_y = grid_y - 1
-	
+
 	if new_y < MIN_ROW or is_blocked(grid_x, new_y):
 		print("❌ Impossible de monter : mur !")
 		return
-	
+
 	grid_y = new_y
 	var target = Vector2(
 		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
 		grid_y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
-	
+
+	# 👉 Animation de marche vers le haut
+	anim.play("up")
+
+
+
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+
+	# 👉 Retour à l’animation idle
+	anim.play("idle")
 
 func move_down_animated():
 	var new_y = grid_y + 1
@@ -292,10 +302,14 @@ func move_down_animated():
 		grid_y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
 	
+	anim.play("down")
+	
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	
+	anim.play("idle")
 
 func move_left_animated():
 	var new_x = grid_x - 1
@@ -310,10 +324,14 @@ func move_left_animated():
 		grid_y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
 	
+	anim.play("left")
+	
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	
+	anim.play("idle")
 
 func move_right_animated():
 	var new_x = grid_x + 1
@@ -328,10 +346,13 @@ func move_right_animated():
 		grid_y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
 	
+	anim.play("right")
+	
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	anim.play("idle")
 
 # ========================================
 # RESET
@@ -349,7 +370,7 @@ func _on_reset_pressed():
 	while_mode = false
 
 func reset_player_position():
-	grid_x = 0
+	grid_x = 6
 	grid_y = 2
 	
 	var grid_pos = Vector2(

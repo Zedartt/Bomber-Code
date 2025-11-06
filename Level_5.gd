@@ -2,6 +2,8 @@ extends Node
 
 @onready var tilemap := $TileMap
 @onready var player := $CharacterBody2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var anim: AnimatedSprite2D = $CharacterBody2D/Sprite2D
 @onready var command_list : ItemList = $TextureRect/ItemList
 @onready var btn_attack : Button = $attack  # ← Ton bouton attack (à créer dans l'éditeur)
 
@@ -63,7 +65,7 @@ func _place_boss():
 	boss.texture = load("res://images/boss.png")
 	
 	var grid_x_boss = 1
-	var grid_y_boss = 1
+	var grid_y_boss = 0
 	
 	var grid_pos = Vector2(
 		grid_x_boss * CELL_SIZE + CELL_SIZE / 2.0,
@@ -331,12 +333,12 @@ func can_move_in_direction(direction: String) -> bool:
 # ========================================
 
 var obstacles = [
-	Vector2(0, 1),
-	Vector2(0, 2),
-	Vector2(0, 3),
-	Vector2(0, 4),
-	Vector2(-1, 4),
+	Vector2(1, 2),
+	Vector2(2, 2),
+	Vector2(3, 2),
+	Vector2(4, 2),
 	Vector2(5, -1),
+	Vector2(0, 3),
 ]
 
 func is_blocked(x: int, y: int) -> bool:
@@ -354,11 +356,13 @@ func move_up_animated():
 		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
 		grid_y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
+	anim.play("up")
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	anim.play("idle")
 	
 	# Vérifie si on a récupéré l'arme
 	check_weapon_pickup()
@@ -375,11 +379,13 @@ func move_down_animated():
 		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
 		grid_y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
+	anim.play("down")
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	anim.play("idle")
 	
 	check_weapon_pickup()
 
@@ -395,11 +401,13 @@ func move_left_animated():
 		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
 		grid_y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
+	anim.play("left")
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	anim.play("idle")
 	
 	check_weapon_pickup()
 
@@ -415,11 +423,13 @@ func move_right_animated():
 		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
 		grid_y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
+	anim.play("right")
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	anim.play("idle")
 	
 	check_weapon_pickup()
 
@@ -449,7 +459,7 @@ func _on_reset_pressed():
 
 func reset_player_position():
 	grid_x = 0
-	grid_y = 3
+	grid_y = 4
 	
 	var grid_pos = Vector2(
 		grid_x * CELL_SIZE + CELL_SIZE / 2.0,

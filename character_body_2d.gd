@@ -2,17 +2,25 @@ extends CharacterBody2D
 
 const tile_size : Vector2 = Vector2(16, 16)
 var sprite_node_pos_tween : Tween
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 func _physics_process(delta: float) -> void:
 	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
 		if Input.is_action_just_pressed("ui_up") and !$up.is_colliding():
 			_move(Vector2(0, -1))
+			
 		elif Input.is_action_just_pressed("ui_down") and !$down.is_colliding():
 			_move(Vector2(0, 1))
+			sprite_2d.animation = "down"
 		elif Input.is_action_just_pressed("ui_left") and !$left.is_colliding():
 			_move(Vector2(-1, 0))
+			sprite_2d.animation = "left"
 		elif Input.is_action_just_pressed("ui_right") and !$right.is_colliding():
 			_move(Vector2(1, 0))
+			sprite_2d.animation = "right"
+	
+	var isLeft = velocity.x < 0
+	sprite_2d.flip_h = isLeft
 
 func _move(dir: Vector2):
 	global_position += dir * tile_size
@@ -47,7 +55,3 @@ func _move(dir: Vector2):
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 #
 	#move_and_slide()
-
-
-func _on_monter_pressed() -> void:
-	pass # Replace with function body.
