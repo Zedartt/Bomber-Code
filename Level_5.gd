@@ -336,6 +336,7 @@ var obstacles = [
 	Vector2(0, 3),
 	Vector2(0, 4),
 	Vector2(-1, 4),
+	Vector2(5, -1),
 ]
 
 func is_blocked(x: int, y: int) -> bool:
