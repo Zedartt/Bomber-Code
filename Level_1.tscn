@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="2_tedvs"]
 [ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="2_u16a4"]
 [ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="3_smwyr"]
-[ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="5_jikk4"]
+[ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="8_tedvs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wi7h"]
 texture = ExtResource("2_tedvs")
@@ -171,11 +171,11 @@ target_position = Vector2(50, 0)
 hit_from_inside = true
 
 [node name="back" type="TextureButton" parent="."]
-offset_left = 14.0
-offset_top = 4.0
-offset_right = 84.0
-offset_bottom = 76.0
-texture_normal = ExtResource("5_jikk4")
+offset_left = 530.0
+offset_top = 22.0
+offset_right = 600.0
+offset_bottom = 94.0
+texture_normal = ExtResource("8_tedvs")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true

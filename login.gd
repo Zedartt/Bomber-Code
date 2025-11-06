@@ -71,3 +71,7 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 
 	else:
 		status_label.text = "Erreur inconnue (%d)" % response_code
+
+
+func _on_guest_pressed() -> void:
+	get_tree().change_scene_to_file("res://MainMenu.tscn")

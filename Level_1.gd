@@ -9,7 +9,6 @@ const GRID_HEIGHT := 7
 const CELL_SIZE := 64
 const MAX_SCRIPT_LINES := 5
 
-# Limites du terrain jouable
 const MIN_COL := 0
 const MAX_COL := 6
 const MIN_ROW := -1
@@ -19,11 +18,9 @@ var tilemap_offset := Vector2.ZERO
 var current_position := Vector2.ZERO
 var tile_size := CELL_SIZE
 
-# Position en grille
 var grid_x := 6
 var grid_y := 5
 
-# Le script que le joueur construit
 var player_script := []
 
 var while_mode: bool = false
@@ -47,18 +44,14 @@ func _place_player():
 	print("🎮 Joueur placé à la case (6, 5)")
 	
 func is_cell_blocked(cell: Vector2i) -> bool:
-	# 1) En dehors de la zone jouable → considéré comme mur
 	if cell.x < MIN_COL or cell.x > MAX_COL or cell.y < MIN_ROW or cell.y > MAX_ROW:
 		return true
 
-	# 2) On lit la tuile du TileMap, layer 0
 	var source_id: int = tilemap.get_cell_source_id(0, cell)
 
-	# Pas de tuile → case vide → pas un mur
 	if source_id == -1:
 		return false
 
-	# 3) Si la tuile est un mur → bloqué
 	return source_id in WALL_TILE_IDS
 
 
@@ -78,30 +71,17 @@ func _place_door():
 		door.scale = Vector2(scale_factor, scale_factor)
 	
 	add_child(door)
-	print("🚪 Porte placée à la case (6, -1)")
-	
-
-
-# ========================================
-# SYSTÈME D'AJOUT DE COMMANDES
-# ========================================
 
 func add_command_to_script(command: String):
 	if player_script.size() >= MAX_SCRIPT_LINES:
-		print("⚠️ Script plein ! Maximum 5 lignes")
 		return false
 	
 	player_script.append(command)
-	print("✅ Commande ajoutée : ", command)
 	return true
 
 func remove_command_at_index(index: int):
 	if index >= 0 and index < player_script.size():
 		player_script.remove_at(index)
-
-# ========================================
-# BOUTONS DE COMMANDE
-# ========================================
 
 func _on_btn_up_pressed():
 	if while_mode:
@@ -147,10 +127,6 @@ func _on_btn_right_pressed():
 			if command_list.item_count <= 4:
 				command_list.add_item("droite()")
 
-# ========================================
-# EXÉCUTION DU SCRIPT
-# ========================================
-
 func _on_start_pressed():
 	print("▶️ EXÉCUTION DU SCRIPT")
 	await execute_script()
@@ -181,11 +157,8 @@ func execute_command(cmd: String):
 		await execute_while_move("left")
 	elif cmd == "while_right":
 		await execute_while_move("right")
-	else:
-		print("❌ Commande inconnue : ", cmd)
 
 func execute_while_move(direction: String) -> void:
-	print("🔁 while pas de mur →", direction)
 	while can_move_in_direction(direction):
 		await move_one_step(direction)
 
@@ -215,21 +188,14 @@ func can_move_in_direction(direction: String) -> bool:
 		"right":
 			target_cell.x += 1
 		_:
-			return false  # direction inconnue
+			return false
 
-	# On peut bouger SI la case cible n'est pas bloquée
 	return not is_cell_blocked(target_cell)
-
-
-# ========================================
-# MOUVEMENTS ANIMÉS AVEC LIMITES
-# ========================================
 
 func move_up_animated():
 	var target_cell := Vector2i(grid_x, grid_y - 1)
 
 	if is_cell_blocked(target_cell):
-		print("❌ Impossible de monter : mur !")
 		return
 
 	grid_x = target_cell.x
@@ -250,7 +216,6 @@ func move_down_animated():
 	var target_cell := Vector2i(grid_x, grid_y + 1)
 
 	if is_cell_blocked(target_cell):
-		print("❌ Impossible de descendre : mur !")
 		return
 
 	grid_x = target_cell.x
@@ -270,7 +235,6 @@ func move_left_animated():
 	var target_cell := Vector2i(grid_x - 1, grid_y)
 
 	if is_cell_blocked(target_cell):
-		print("❌ Impossible d'aller à gauche : mur !")
 		return
 
 	grid_x = target_cell.x
@@ -290,7 +254,6 @@ func move_right_animated():
 	var target_cell := Vector2i(grid_x + 1, grid_y)
 
 	if is_cell_blocked(target_cell):
-		print("❌ Impossible d'aller à droite : mur !")
 		return
 
 	grid_x = target_cell.x
@@ -306,17 +269,11 @@ func move_right_animated():
 	current_position = target
 	await tween.finished
 
-# ========================================
-# RESET
-# ========================================
-
 func clear_script():
 	player_script.clear()
-	print("🔄 Script réinitialisé")
 	command_list.clear()
 
 func _on_reset_pressed():
-	print("🔄 RESET")
 	clear_script()
 	reset_player_position()
 
@@ -334,23 +291,15 @@ func reset_player_position():
 func _clear_list():
 	command_list.clear()
 	clear_script()
-	
-
-# ========================================
-# VICTOIRE
-# ========================================
 
 func check_victory():
-	# La porte est à la case (6, -1)
 	if grid_x == 6 and grid_y == -1:
-		print("🎉 VICTOIRE !")
 		show_victory_screen()
 	else:
 		print("Position actuelle : (", grid_x, ", ", grid_y, ")")
 
 func show_victory_screen():
 	get_tree().change_scene_to_file("res://world_1.tscn")
-	print("✨ Niveau terminé !")
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://world_1.tscn")
@@ -358,4 +307,3 @@ func _on_back_pressed() -> void:
 
 func _on_btn_while_pressed() -> void:
 	while_mode = true
-	print("🌀 Mode while activé : choisis une direction")
