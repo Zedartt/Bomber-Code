@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dm2makv82h8k3"]
+[gd_scene load_steps=15 format=3 uid="uid://bsy45xu20s63n"]
 
 [ext_resource type="Texture2D" uid="uid://b8ty1rxj54wq6" path="res://images/tileSet_grass.png" id="1_65pcf"]
 [ext_resource type="Script" uid="uid://b4ydtxvxp4sye" path="res://Level_1.gd" id="1_a0j4s"]
@@ -137,7 +137,7 @@ script = ExtResource("1_a0j4s")
 position = Vector2(0, 150)
 tile_set = SubResource("TileSet_jikk4")
 format = 2
-layer_0/tile_data = PackedInt32Array(131072, 6, 0, 131073, 6, 0, 131074, 6, 0, 131075, 6, 0, 131076, 6, 0, 131077, 6, 0, 65541, 6, 0, 0, 6, 0, 65536, 6, 0, 65537, 6, 0, 65538, 6, 0, 2, 6, 0, 1, 6, 0, 3, 6, 0, 4, 6, 0, 65539, 6, 0, 65540, 6, 0, 5, 6, 0, 196608, 6, 0, 262144, 6, 0, 262145, 6, 0, 196609, 6, 0, 196610, 6, 0, 196611, 6, 0, 262147, 6, 0, 262148, 6, 0, 196612, 6, 0, 196613, 6, 0, 262149, 6, 0, 262146, 6, 0, 6, 6, 0, 65542, 6, 0, 262150, 6, 0, 131078, 6, 0, 196614, 6, 0, 327680, 6, 0, 327681, 6, 0, 327682, 6, 0, 327683, 6, 0, 327684, 6, 0, 327685, 6, 0, 327686, 6, 0, -65536, 6, 0, -65535, 6, 0, -65534, 6, 0, -65533, 6, 0, -65532, 6, 0, -65531, 6, 0, -65530, 6, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 327687, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, -65529, 0, 0, -131065, 0, 0, -131066, 0, 0, -131067, 0, 0, -131068, 0, 0, -131069, 0, 0, -131070, 0, 0, -131071, 0, 0, -131072, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0)
+layer_0/tile_data = PackedInt32Array(131072, 6, 0, 131073, 6, 0, 131074, 6, 0, 131075, 6, 0, 131076, 6, 0, 131077, 6, 0, 65541, 6, 0, 0, 6, 0, 65536, 6, 0, 65537, 6, 0, 65538, 6, 0, 2, 6, 0, 1, 6, 0, 3, 6, 0, 4, 6, 0, 65539, 6, 0, 65540, 6, 0, 5, 6, 0, 196608, 6, 0, 262144, 6, 0, 262145, 6, 0, 196609, 6, 0, 196610, 6, 0, 196611, 6, 0, 262147, 6, 0, 262148, 6, 0, 196612, 6, 0, 196613, 6, 0, 262149, 6, 0, 262146, 6, 0, 6, 6, 0, 65542, 6, 0, 262150, 6, 0, 196614, 6, 0, 327680, 6, 0, 327681, 6, 0, 327682, 6, 0, 327683, 6, 0, 327684, 6, 0, 327685, 6, 0, 327686, 6, 0, -65536, 6, 0, -65535, 6, 0, -65534, 6, 0, -65533, 6, 0, -65532, 6, 0, -65531, 6, 0, -65530, 6, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 327687, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, -65529, 0, 0, -131065, 0, 0, -131066, 0, 0, -131067, 0, 0, -131068, 0, 0, -131069, 0, 0, -131070, 0, 0, -131071, 0, 0, -131072, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 131078, 6, 0)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_kidjj")
@@ -226,12 +226,21 @@ text = "Start"
 metadata/_edit_use_anchors_ = true
 
 [node name="Reset" type="Button" parent="."]
-offset_left = 168.0
-offset_top = 570.0
-offset_right = 261.0
-offset_bottom = 606.0
+offset_left = 179.0
+offset_top = 605.0
+offset_right = 272.0
+offset_bottom = 641.0
 theme_override_font_sizes/font_size = 20
 text = "Reset"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_while" type="Button" parent="."]
+offset_left = 668.0
+offset_top = 386.0
+offset_right = 761.0
+offset_bottom = 422.0
+theme_override_font_sizes/font_size = 20
+text = "while no_wall:"
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -263,4 +272,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="droite" to="." method="_on_btn_right_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="btn_while" to="." method="_on_btn_while_pressed"]
 [connection signal="pressed" from="Clear" to="." method="_clear_list"]

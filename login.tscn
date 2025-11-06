@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdk3uwl6fb7m5"]
+[gd_scene load_steps=9 format=3 uid="uid://bdk3uwl6fb7m5"]
 
 [ext_resource type="Script" uid="uid://cbf0x48ucu0hb" path="res://login.gd" id="1_6hqeh"]
 [ext_resource type="Texture2D" uid="uid://bo47sadxi8aap" path="res://images/explosif-menu.png" id="1_cau7c"]
 [ext_resource type="Texture2D" uid="uid://df684aylq87c4" path="res://images/logo_bomber_code.png" id="2_xlo4h"]
 [ext_resource type="Texture2D" uid="uid://bqr0x0vgteobg" path="res://images/panel_login.png" id="3_bvvwm"]
-[ext_resource type="Texture2D" uid="uid://c7qmrx0jnigvj" path="res://images/play_button.png" id="4_bvvwm"]
+[ext_resource type="Texture2D" uid="uid://bfpyfga1cp3t3" path="res://images/connection.png" id="5_ma4wh"]
+[ext_resource type="Texture2D" uid="uid://040s31jwqple" path="res://images/connexion_select.png" id="6_0s12h"]
+[ext_resource type="Texture2D" uid="uid://cw88r3jybqwcd" path="res://images/inscription.png" id="7_0trqi"]
+[ext_resource type="Texture2D" uid="uid://dwdubu071cqny" path="res://images/inscription_select.png" id="8_xwwoh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -56,39 +59,25 @@ grow_horizontal = 2
 texture = ExtResource("3_bvvwm")
 stretch_mode = 5
 
-[node name="LineEdit" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 421.0
-offset_top = 334.99997
-offset_right = 489.5625
-offset_bottom = 365.99997
-scale = Vector2(4.334745, 1.2585087)
-
-[node name="LineEdit2" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 422.0
-offset_top = 462.0
-offset_right = 490.5625
-offset_bottom = 493.0
-scale = Vector2(4.336813, 1.1110762)
-
 [node name="connexion_button" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 410.0
-offset_top = 570.0
-offset_right = 530.0
-offset_bottom = 636.0
-texture_normal = ExtResource("4_bvvwm")
+offset_left = 411.0
+offset_top = 554.0
+offset_right = 565.0
+offset_bottom = 631.0
+texture_normal = ExtResource("5_ma4wh")
+texture_hover = ExtResource("6_0s12h")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="inscription_button" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 605.0
-offset_top = 570.0
-offset_right = 723.0
-offset_bottom = 636.0
-texture_normal = ExtResource("4_bvvwm")
+offset_left = 586.0
+offset_top = 551.0
+offset_right = 740.0
+offset_bottom = 632.0
+texture_normal = ExtResource("7_0trqi")
+texture_hover = ExtResource("8_xwwoh")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -96,3 +85,23 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 334.0
+offset_right = 718.0
+offset_bottom = 376.0
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Login"
+flat = true
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 457.0
+offset_right = 718.0
+offset_bottom = 499.0
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Password"
+flat = true

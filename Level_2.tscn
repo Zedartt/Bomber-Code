@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cx15co3q0dvae"]
+[gd_scene load_steps=15 format=3 uid="uid://c8cnmv6xbmtxs"]
 
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="1_1n7cm"]
 [ext_resource type="Script" uid="uid://ksg2rglwx42t" path="res://Level_2.gd" id="1_vx6px"]
@@ -232,6 +232,15 @@ theme_override_font_sizes/font_size = 20
 text = "Reset"
 metadata/_edit_use_anchors_ = true
 
+[node name="btn_while" type="Button" parent="."]
+offset_left = 668.0
+offset_top = 386.0
+offset_right = 812.0
+offset_bottom = 422.0
+theme_override_font_sizes/font_size = 20
+text = "while no_wall:"
+metadata/_edit_use_anchors_ = true
+
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 857.0
 offset_top = 145.0
@@ -261,4 +270,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="droite" to="." method="_on_btn_right_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="btn_while" to="." method="_on_btn_while_pressed"]
 [connection signal="pressed" from="Clear" to="." method="clear_script"]

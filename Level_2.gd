@@ -24,7 +24,10 @@ var grid_x := 6
 var grid_y := 5
 
 # Le script que le joueur construit
-var player_script := []
+var player_script: Array[String] = []
+
+# Mode "while" : prochain clic de direction créera un bloc while_xxx
+var while_mode: bool = false
 
 func _ready():
 	tilemap_offset = tilemap.position
@@ -42,7 +45,6 @@ func _place_player():
 	player.position = grid_pos + tilemap_offset
 	current_position = player.position
 	print("🎮 Joueur placé à la case (6, -1)")
-
 
 func _place_door():
 	var door = Sprite2D.new()
@@ -69,7 +71,7 @@ func _place_door():
 # SYSTÈME D'AJOUT DE COMMANDES
 # ========================================
 
-func add_command_to_script(command: String):
+func add_command_to_script(command: String) -> bool:
 	if player_script.size() >= MAX_SCRIPT_LINES:
 		print("⚠️ Script plein ! Maximum 5 lignes")
 		return false
@@ -87,24 +89,52 @@ func remove_command_at_index(index: int):
 # ========================================
 
 func _on_btn_up_pressed():
-	add_command_to_script("monter()")
-	if command_list.item_count <= 4: 
-		command_list.add_item("monter()")
+	if while_mode:
+		if add_command_to_script("while_up"):
+			if command_list.item_count <= 4:
+				command_list.add_item("while pas de mur → haut")
+		while_mode = false
+	else:
+		if add_command_to_script("monter()"):
+			if command_list.item_count <= 4:
+				command_list.add_item("monter()")
 
 func _on_btn_down_pressed():
-	add_command_to_script("descendre()")
-	if command_list.item_count <= 4: 
-		command_list.add_item("descendre()")
+	if while_mode:
+		if add_command_to_script("while_down"):
+			if command_list.item_count <= 4:
+				command_list.add_item("while pas de mur → bas")
+		while_mode = false
+	else:
+		if add_command_to_script("descendre()"):
+			if command_list.item_count <= 4:
+				command_list.add_item("descendre()")
 
 func _on_btn_left_pressed():
-	add_command_to_script("gauche()")
-	if command_list.item_count <= 4: 
-		command_list.add_item("gauche()")
+	if while_mode:
+		if add_command_to_script("while_left"):
+			if command_list.item_count <= 4:
+				command_list.add_item("while pas de mur → gauche")
+		while_mode = false
+	else:
+		if add_command_to_script("gauche()"):
+			if command_list.item_count <= 4:
+				command_list.add_item("gauche()")
 
 func _on_btn_right_pressed():
-	add_command_to_script("droite()")
-	if command_list.item_count <= 4: 
-		command_list.add_item("droite()")
+	if while_mode:
+		if add_command_to_script("while_right"):
+			if command_list.item_count <= 4:
+				command_list.add_item("while pas de mur → droite")
+		while_mode = false
+	else:
+		if add_command_to_script("droite()"):
+			if command_list.item_count <= 4:
+				command_list.add_item("droite()")
+
+func _on_btn_while_pressed() -> void:
+	while_mode = true
+	print("🌀 Mode while activé : choisis une direction")
 
 # ========================================
 # EXÉCUTION DU SCRIPT
@@ -117,7 +147,7 @@ func _on_start_pressed():
 
 func execute_script():
 	for i in range(player_script.size()):
-		var cmd = player_script[i]
+		var cmd := player_script[i]
 		print("Exécution ligne ", i + 1, " : ", cmd)
 		await execute_command(cmd)
 
@@ -132,8 +162,53 @@ func execute_command(cmd: String):
 		await move_left_animated()
 	elif cmd == "droite()":
 		await move_right_animated()
+	elif cmd == "while_up":
+		await execute_while_move("up")
+	elif cmd == "while_down":
+		await execute_while_move("down")
+	elif cmd == "while_left":
+		await execute_while_move("left")
+	elif cmd == "while_right":
+		await execute_while_move("right")
 	else:
 		print("❌ Commande inconnue : ", cmd)
+
+# --- While no wall ----------------------
+
+func execute_while_move(direction: String) -> void:
+	print("🔁 while pas de mur →", direction)
+	while can_move_in_direction(direction):
+		await move_one_step(direction)
+
+func move_one_step(direction: String) -> void:
+	match direction:
+		"up":
+			await move_up_animated()
+		"down":
+			await move_down_animated()
+		"left":
+			await move_left_animated()
+		"right":
+			await move_right_animated()
+
+func can_move_in_direction(direction: String) -> bool:
+	var new_x := grid_x
+	var new_y := grid_y
+
+	match direction:
+		"up":
+			new_y -= 1
+		"down":
+			new_y += 1
+		"left":
+			new_x -= 1
+		"right":
+			new_x += 1
+		_:
+			return false
+
+	# Ici on ne gère que les bords du niveau (pas encore de murs internes)
+	return new_x >= MIN_COL and new_x <= MAX_COL and new_y >= MIN_ROW and new_y <= MAX_ROW
 
 # ========================================
 # MOUVEMENTS ANIMÉS AVEC LIMITES
@@ -224,6 +299,7 @@ func _on_reset_pressed():
 	print("🔄 RESET")
 	clear_script()
 	reset_player_position()
+	while_mode = false
 
 func reset_player_position():
 	grid_x = 6

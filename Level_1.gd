@@ -26,6 +26,9 @@ var grid_y := 5
 # Le script que le joueur construit
 var player_script := []
 
+var while_mode: bool = false
+const WALL_TILE_IDS := [0]
+
 func _ready():
 	tilemap_offset = tilemap.position
 	_place_player()
@@ -42,6 +45,22 @@ func _place_player():
 	player.position = grid_pos + tilemap_offset
 	current_position = player.position
 	print("🎮 Joueur placé à la case (6, 5)")
+	
+func is_cell_blocked(cell: Vector2i) -> bool:
+	# 1) En dehors de la zone jouable → considéré comme mur
+	if cell.x < MIN_COL or cell.x > MAX_COL or cell.y < MIN_ROW or cell.y > MAX_ROW:
+		return true
+
+	# 2) On lit la tuile du TileMap, layer 0
+	var source_id: int = tilemap.get_cell_source_id(0, cell)
+
+	# Pas de tuile → case vide → pas un mur
+	if source_id == -1:
+		return false
+
+	# 3) Si la tuile est un mur → bloqué
+	return source_id in WALL_TILE_IDS
+
 
 func _place_door():
 	var door = Sprite2D.new()
@@ -60,6 +79,8 @@ func _place_door():
 	
 	add_child(door)
 	print("🚪 Porte placée à la case (6, -1)")
+	
+
 
 # ========================================
 # SYSTÈME D'AJOUT DE COMMANDES
@@ -83,24 +104,48 @@ func remove_command_at_index(index: int):
 # ========================================
 
 func _on_btn_up_pressed():
-	add_command_to_script("monter()")
-	if command_list.item_count <= 4: 
-		command_list.add_item("monter()")
+	if while_mode:
+		if add_command_to_script("while_up"):
+			if command_list.item_count <= 4:
+				command_list.add_item("while pas de mur → haut")
+		while_mode = false
+	else:
+		if add_command_to_script("monter()"):
+			if command_list.item_count <= 4:
+				command_list.add_item("monter()")
 
 func _on_btn_down_pressed():
-	add_command_to_script("descendre()")
-	if command_list.item_count <= 4: 
-		command_list.add_item("descendre()")
+	if while_mode:
+		if add_command_to_script("while_down"):
+			if command_list.item_count <= 4:
+				command_list.add_item("while pas de mur → bas")
+		while_mode = false
+	else:
+		if add_command_to_script("descendre()"):
+			if command_list.item_count <= 4:
+				command_list.add_item("descendre()")
 
 func _on_btn_left_pressed():
-	add_command_to_script("gauche()")
-	if command_list.item_count <= 4: 
-		command_list.add_item("gauche()")
+	if while_mode:
+		if add_command_to_script("while_left"):
+			if command_list.item_count <= 4:
+				command_list.add_item("while pas de mur → gauche")
+		while_mode = false
+	else:
+		if add_command_to_script("gauche()"):
+			if command_list.item_count <= 4:
+				command_list.add_item("gauche()")
 
 func _on_btn_right_pressed():
-	add_command_to_script("droite()")
-	if command_list.item_count <= 4: 
-		command_list.add_item("droite()")
+	if while_mode:
+		if add_command_to_script("while_right"):
+			if command_list.item_count <= 4:
+				command_list.add_item("while pas de mur → droite")
+		while_mode = false
+	else:
+		if add_command_to_script("droite()"):
+			if command_list.item_count <= 4:
+				command_list.add_item("droite()")
 
 # ========================================
 # EXÉCUTION DU SCRIPT
@@ -128,80 +173,134 @@ func execute_command(cmd: String):
 		await move_left_animated()
 	elif cmd == "droite()":
 		await move_right_animated()
+	elif cmd == "while_up":
+		await execute_while_move("up")
+	elif cmd == "while_down":
+		await execute_while_move("down")
+	elif cmd == "while_left":
+		await execute_while_move("left")
+	elif cmd == "while_right":
+		await execute_while_move("right")
 	else:
 		print("❌ Commande inconnue : ", cmd)
+
+func execute_while_move(direction: String) -> void:
+	print("🔁 while pas de mur →", direction)
+	while can_move_in_direction(direction):
+		await move_one_step(direction)
+
+
+func move_one_step(direction: String) -> void:
+	match direction:
+		"up":
+			await move_up_animated()
+		"down":
+			await move_down_animated()
+		"left":
+			await move_left_animated()
+		"right":
+			await move_right_animated()
+
+
+func can_move_in_direction(direction: String) -> bool:
+	var target_cell := Vector2i(grid_x, grid_y)
+
+	match direction:
+		"up":
+			target_cell.y -= 1
+		"down":
+			target_cell.y += 1
+		"left":
+			target_cell.x -= 1
+		"right":
+			target_cell.x += 1
+		_:
+			return false  # direction inconnue
+
+	# On peut bouger SI la case cible n'est pas bloquée
+	return not is_cell_blocked(target_cell)
+
 
 # ========================================
 # MOUVEMENTS ANIMÉS AVEC LIMITES
 # ========================================
 
 func move_up_animated():
-	var new_y = grid_y - 1
-	
-	if new_y < MIN_ROW:
+	var target_cell := Vector2i(grid_x, grid_y - 1)
+
+	if is_cell_blocked(target_cell):
 		print("❌ Impossible de monter : mur !")
 		return
-	
-	grid_y = new_y
-	var target = Vector2(
-		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
-		grid_y * CELL_SIZE + CELL_SIZE / 2.0
+
+	grid_x = target_cell.x
+	grid_y = target_cell.y
+
+	var target := Vector2(
+		target_cell.x * CELL_SIZE + CELL_SIZE / 2.0,
+		target_cell.y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
-	
+
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
 
+
 func move_down_animated():
-	var new_y = grid_y + 1
-	
-	if new_y > MAX_ROW:
+	var target_cell := Vector2i(grid_x, grid_y + 1)
+
+	if is_cell_blocked(target_cell):
 		print("❌ Impossible de descendre : mur !")
 		return
-	
-	grid_y = new_y
-	var target = Vector2(
-		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
-		grid_y * CELL_SIZE + CELL_SIZE / 2.0
+
+	grid_x = target_cell.x
+	grid_y = target_cell.y
+
+	var target := Vector2(
+		target_cell.x * CELL_SIZE + CELL_SIZE / 2.0,
+		target_cell.y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
-	
+
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
 
 func move_left_animated():
-	var new_x = grid_x - 1
-	
-	if new_x < MIN_COL:
+	var target_cell := Vector2i(grid_x - 1, grid_y)
+
+	if is_cell_blocked(target_cell):
 		print("❌ Impossible d'aller à gauche : mur !")
 		return
-	
-	grid_x = new_x
-	var target = Vector2(
-		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
-		grid_y * CELL_SIZE + CELL_SIZE / 2.0
+
+	grid_x = target_cell.x
+	grid_y = target_cell.y
+
+	var target := Vector2(
+		target_cell.x * CELL_SIZE + CELL_SIZE / 2.0,
+		target_cell.y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
-	
+
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
 
 func move_right_animated():
-	var new_x = grid_x + 1
-	
-	if new_x > MAX_COL:
+	var target_cell := Vector2i(grid_x + 1, grid_y)
+
+	if is_cell_blocked(target_cell):
 		print("❌ Impossible d'aller à droite : mur !")
 		return
-	
-	grid_x = new_x
-	var target = Vector2(
-		grid_x * CELL_SIZE + CELL_SIZE / 2.0,
-		grid_y * CELL_SIZE + CELL_SIZE / 2.0
+
+	grid_x = target_cell.x
+	grid_y = target_cell.y
+
+	var target := Vector2(
+		target_cell.x * CELL_SIZE + CELL_SIZE / 2.0,
+		target_cell.y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
-	
+
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
@@ -255,3 +354,8 @@ func show_victory_screen():
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://world_1.tscn")
+
+
+func _on_btn_while_pressed() -> void:
+	while_mode = true
+	print("🌀 Mode while activé : choisis une direction")
