@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://ksg2rglwx42t" path="res://Level_2.gd" id="1_vx6px"]
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="2_kgqac"]
 [ext_resource type="Texture2D" uid="uid://c7xeejs4w2hqn" path="res://images/background_lvl.png" id="2_lgjvw"]
-[gd_scene load_steps=35 format=3 uid="uid://c8cnmv6xbmtxs"]
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="1_1n7cm"]
 [ext_resource type="Script" uid="uid://ksg2rglwx42t" path="res://Level_2.gd" id="1_vx6px"]
 [ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="4_kgqac"]

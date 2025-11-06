@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=19 format=3 uid="uid://gfolebh4cxem"]
-=======
 [gd_scene load_steps=51 format=3 uid="uid://b6ok00b7frkl0"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [ext_resource type="Script" uid="uid://cvntjjgqivun2" path="res://Level_5.gd" id="1_qo1t8"]
 [ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="2_jsfrd"]
@@ -11,13 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="4_e5p7a"]
 [ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="5_b1itt"]
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="6_frlso"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="7_3rdnx"]
 [ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="9_e5p7a"]
 [ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="10_b1itt"]
 [ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="11_frlso"]
 [ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="12_3rdnx"]
-=======
 [ext_resource type="Texture2D" uid="uid://bfqwfr5s7moqt" path="res://images/spritesheet_attack_2.png" id="7_0wac2"]
 [ext_resource type="Texture2D" uid="uid://dk4mfw3fnehvd" path="res://images/spritesheet_front.png" id="7_3rdnx"]
 [ext_resource type="Texture2D" uid="uid://c1pxsbsusdg8w" path="res://images/spritesheet_idle_lvl5.png" id="7_s35gs"]
@@ -26,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="9_e5p7a"]
 [ext_resource type="Texture2D" uid="uid://c2kvoxs1e8sb8" path="res://images/spritesheet_right.png" id="10_g2xk2"]
 [ext_resource type="Texture2D" uid="uid://cp15qgd11ll57" path="res://images/spritesheet_up_lvl5.png" id="11_o58um"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g2xk2"]
 texture = ExtResource("2_jsfrd")
@@ -519,26 +512,25 @@ target_position = Vector2(50, 0)
 hit_from_inside = true
 
 [node name="back" type="TextureButton" parent="."]
-<<<<<<< HEAD
 offset_left = 530.0
 offset_top = 22.0
 offset_right = 600.0
 offset_bottom = 94.0
 texture_normal = ExtResource("9_e5p7a")
 texture_hover = ExtResource("10_b1itt")
-=======
-offset_left = 1046.0
-offset_top = 19.0
-offset_right = 1116.0
-offset_bottom = 91.0
-texture_normal = ExtResource("8_s35gs")
-texture_hover = ExtResource("9_e5p7a")
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-<<<<<<< HEAD
+[node name="attack" type="Button" parent="."]
+offset_left = 671.0
+offset_top = 449.0
+offset_right = 764.0
+offset_bottom = 485.0
+theme_override_font_sizes/font_size = 20
+text = "attack()"
+metadata/_edit_use_anchors_ = true
+
 [node name="info_button" type="TextureButton" parent="."]
 offset_left = 1066.0
 offset_top = 22.0
@@ -556,16 +548,6 @@ offset_right = 1058.0
 offset_bottom = 68.0
 theme_override_font_sizes/font_size = 22
 text = "INFORMATION"
-=======
-[node name="attack" type="Button" parent="."]
-offset_left = 671.0
-offset_top = 449.0
-offset_right = 764.0
-offset_bottom = 485.0
-theme_override_font_sizes/font_size = 20
-text = "attack()"
-metadata/_edit_use_anchors_ = true
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [connection signal="pressed" from="monter" to="." method="_on_btn_up_pressed"]
 [connection signal="pressed" from="gauche" to="." method="_on_btn_left_pressed"]
@@ -576,8 +558,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="btn_while" to="." method="_on_btn_while_pressed"]
 [connection signal="pressed" from="Clear" to="." method="clear_script"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
-<<<<<<< HEAD
 [connection signal="pressed" from="info_button" to="." method="_on_info_button_pressed"]
-=======
 [connection signal="pressed" from="attack" to="." method="_on_btn_attack_pressed"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2

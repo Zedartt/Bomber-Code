@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=19 format=3 uid="uid://iajmkv5er4al"]
-=======
 [gd_scene load_steps=36 format=3 uid="uid://iajmkv5er4al"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [ext_resource type="Script" uid="uid://cm6prkx151ja0" path="res://Level_3.gd" id="1_v4u5w"]
 [ext_resource type="Texture2D" uid="uid://c7xeejs4w2hqn" path="res://images/background_lvl.png" id="2_3bt5s"]
@@ -17,13 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://h6yjq3d2pc2h" path="res://images/spritesheet_left_lvl3.png" id="9_r4fpt"]
 [ext_resource type="Texture2D" uid="uid://bn0f7575gdyjy" path="res://images/spritesheet_idle_lvl3.png" id="9_ti2hy"]
 [ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="9_ymluh"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="11_sguqi"]
 [ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="12_4m54r"]
-=======
 [ext_resource type="Texture2D" uid="uid://d3mkpd4m6t26b" path="res://images/spritesheet_right_lvl3.png" id="10_upn1n"]
 [ext_resource type="Texture2D" uid="uid://dhuhtmsqnaj71" path="res://images/spritesheet_up_lvl3.png" id="11_jc4en"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v4u5w"]
 texture = ExtResource("2_ymluh")

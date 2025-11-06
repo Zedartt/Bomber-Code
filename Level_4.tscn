@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=19 format=3 uid="uid://bc3keimbwr35e"]
-=======
 [gd_scene load_steps=36 format=3 uid="uid://csntp1md88ud5"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [ext_resource type="Script" uid="uid://tlmphcuo4ptm" path="res://Level_4.gd" id="1_yqdjl"]
 [ext_resource type="Texture2D" uid="uid://c7xeejs4w2hqn" path="res://images/background_lvl.png" id="2_02vam"]
@@ -11,13 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="4_ly6h1"]
 [ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="5_hy7jq"]
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="6_ly6h1"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="7_hy7jq"]
 [ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="9_hshm6"]
 [ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="10_fjop3"]
 [ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="11_dh6nl"]
 [ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="12_s0f3a"]
-=======
 [ext_resource type="Texture2D" uid="uid://djyq3734dblat" path="res://images/lvl4_front_state1.png" id="7_85j6u"]
 [ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="8_02vam"]
 [ext_resource type="Texture2D" uid="uid://ctt4ucc7f8byi" path="res://images/lvl4_front_state2.png" id="8_8w5jw"]
@@ -26,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://rm8c8btkeskm" path="res://images/spritesheet_left_lvl4.png" id="10_47yyk"]
 [ext_resource type="Texture2D" uid="uid://c2cdsuukhsepb" path="res://images/spritesheet_right_lvl4.png" id="11_gfp26"]
 [ext_resource type="Texture2D" uid="uid://ceipa3vo3uf1e" path="res://images/spritesheet_up_lvl4.png" id="12_y0kwq"]
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hy7jq"]
 texture = ExtResource("2_mfdj8")
@@ -410,21 +403,12 @@ target_position = Vector2(50, 0)
 hit_from_inside = true
 
 [node name="back" type="TextureButton" parent="."]
-<<<<<<< HEAD
 offset_left = 530.0
 offset_top = 22.0
 offset_right = 600.0
 offset_bottom = 94.0
 texture_normal = ExtResource("9_hshm6")
 texture_hover = ExtResource("10_fjop3")
-=======
-offset_left = 548.0
-offset_top = 20.0
-offset_right = 618.0
-offset_bottom = 92.0
-texture_normal = ExtResource("8_02vam")
-texture_hover = ExtResource("8_hy7jq")
->>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
