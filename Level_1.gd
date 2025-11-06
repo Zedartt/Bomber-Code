@@ -317,5 +317,9 @@ func _on_back_pressed() -> void:
 func _on_btn_while_pressed() -> void:
 	while_mode = true
 
+<<<<<<< HEAD
 func _on_info_button_pressed() -> void:
+=======
+func _on_info_button_pressed() -> void :
+>>>>>>> 32b04aa75dd36f39cddb42d95963319f77ac6be7
 	SceneManager.go_to_scene("res://information1.tscn")
