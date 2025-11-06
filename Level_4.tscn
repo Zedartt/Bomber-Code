@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="5_hy7jq"]
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="6_ly6h1"]
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="7_hy7jq"]
-[ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="8_hy7jq"]
+[ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="8_hy7jq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hy7jq"]
 texture = ExtResource("2_mfdj8")
@@ -255,10 +255,10 @@ target_position = Vector2(50, 0)
 hit_from_inside = true
 
 [node name="back" type="TextureButton" parent="."]
-offset_left = 1046.0
-offset_top = 19.0
-offset_right = 1116.0
-offset_bottom = 91.0
+offset_left = 548.0
+offset_top = 20.0
+offset_right = 618.0
+offset_bottom = 92.0
 texture_normal = ExtResource("8_hy7jq")
 ignore_texture_size = true
 stretch_mode = 0
