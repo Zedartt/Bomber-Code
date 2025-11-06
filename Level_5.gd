@@ -493,12 +493,6 @@ func show_victory_screen():
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://world_1.tscn")
-<<<<<<< HEAD
-
-
-func _on_info_button_pressed() -> void:
-=======
 	
 func _on_info_button_pressed() -> void :
->>>>>>> 32b04aa75dd36f39cddb42d95963319f77ac6be7
 	SceneManager.go_to_scene("res://information1.tscn")
