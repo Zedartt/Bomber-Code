@@ -1,17 +1,33 @@
+<<<<<<< HEAD
 [gd_scene load_steps=19 format=3 uid="uid://bsy45xu20s63n"]
+=======
+[gd_scene load_steps=35 format=3 uid="uid://bsy45xu20s63n"]
+>>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [ext_resource type="Texture2D" uid="uid://b8ty1rxj54wq6" path="res://images/tileSet_grass.png" id="1_65pcf"]
 [ext_resource type="Script" uid="uid://b4ydtxvxp4sye" path="res://Level_1.gd" id="1_a0j4s"]
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="1_kidjj"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="1_n0r7v"]
 [ext_resource type="Texture2D" uid="uid://c7xeejs4w2hqn" path="res://images/background_lvl.png" id="2_4s4xf"]
+=======
+>>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 [ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="2_tedvs"]
 [ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="2_u16a4"]
 [ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="3_smwyr"]
+[ext_resource type="Texture2D" uid="uid://bkwpc8iqciv26" path="res://images/spritesheet_idle_lvl1.png" id="7_2wi7h"]
+[ext_resource type="Texture2D" uid="uid://drf085nu7r74o" path="res://images/lvl1_front_state1.png" id="7_ar1si"]
+[ext_resource type="Texture2D" uid="uid://81k2xpgadvud" path="res://images/spritesheet_right_lvl1.png" id="8_4s4xf"]
+[ext_resource type="Texture2D" uid="uid://crehmq3a6n36l" path="res://images/lvl1_front_state2.png" id="8_6fba8"]
+[ext_resource type="Texture2D" uid="uid://bdboivkntbnvj" path="res://images/spritesheet_left_lvl1.png" id="8_p7bnq"]
 [ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="8_tedvs"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="9_2wi7h"]
 [ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="10_4s4xf"]
 [ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="10_p7bnq"]
+=======
+[ext_resource type="Texture2D" uid="uid://ci4ixi77dsvbp" path="res://images/spritesheet_up_lvl1.png" id="9_p7bnq"]
+>>>>>>> f7edcb080359eaaea0c9fb24b6df6d257bb539e2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wi7h"]
 texture = ExtResource("2_tedvs")
@@ -130,6 +146,132 @@ sources/3 = SubResource("TileSetAtlasSource_tedvs")
 sources/6 = SubResource("TileSetAtlasSource_gyeet")
 sources/0 = SubResource("TileSetAtlasSource_2wi7h")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc16d"]
+atlas = ExtResource("7_ar1si")
+region = Rect2(0, 0, 180, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hqok"]
+atlas = ExtResource("8_6fba8")
+region = Rect2(0, 0, 180, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar1si"]
+atlas = ExtResource("7_2wi7h")
+region = Rect2(0, 0, 180, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fba8"]
+atlas = ExtResource("7_2wi7h")
+region = Rect2(229, 0, 180, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fa85"]
+atlas = ExtResource("8_p7bnq")
+region = Rect2(0, 0, 180, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xl1m"]
+atlas = ExtResource("8_p7bnq")
+region = Rect2(226, 0, 180, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwsuy"]
+atlas = ExtResource("8_p7bnq")
+region = Rect2(452, 0, 180, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvhjt"]
+atlas = ExtResource("8_p7bnq")
+region = Rect2(678, 0, 180, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehp"]
+atlas = ExtResource("8_4s4xf")
+region = Rect2(0, 0, 200, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1osm"]
+atlas = ExtResource("8_4s4xf")
+region = Rect2(220, 0, 200, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie7uf"]
+atlas = ExtResource("8_4s4xf")
+region = Rect2(440, 0, 200, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwx4l"]
+atlas = ExtResource("8_4s4xf")
+region = Rect2(660, 0, 200, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkbji"]
+atlas = ExtResource("9_p7bnq")
+region = Rect2(0, 0, 170, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eo5x"]
+atlas = ExtResource("9_p7bnq")
+region = Rect2(222, 0, 170, 230)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3fa85"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc16d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hqok")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar1si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fba8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fa85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xl1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwsuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvhjt")
+}],
+"loop": true,
+"name": &"left",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaehp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1osm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie7uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwx4l")
+}],
+"loop": true,
+"name": &"right",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkbji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eo5x")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kidjj"]
 size = Vector2(46, 60)
 
@@ -153,13 +295,15 @@ layer_0/tile_data = PackedInt32Array(131072, 6, 0, 131073, 6, 0, 131074, 6, 0, 1
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_kidjj")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-1, -2.0000002)
-scale = Vector2(0.6167128, 0.61308706)
-texture = ExtResource("1_n0r7v")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(3.6260371, 2.6262565)
+scale = Vector2(0.25140044, 0.25761962)
+sprite_frames = SubResource("SpriteFrames_3fa85")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1, 3)
+position = Vector2(4, 3)
 shape = SubResource("RectangleShape2D_kidjj")
 
 [node name="up" type="RayCast2D" parent="CharacterBody2D"]
@@ -234,7 +378,7 @@ offset_top = 521.0
 offset_right = 938.0
 offset_bottom = 557.0
 theme_override_font_sizes/font_size = 20
-text = "Start"
+text = "Start()"
 metadata/_edit_use_anchors_ = true
 
 [node name="Reset" type="Button" parent="."]
@@ -243,16 +387,7 @@ offset_top = 521.0
 offset_right = 623.0
 offset_bottom = 557.0
 theme_override_font_sizes/font_size = 20
-text = "Reset"
-metadata/_edit_use_anchors_ = true
-
-[node name="btn_while" type="Button" parent="."]
-offset_left = 668.0
-offset_top = 386.0
-offset_right = 761.0
-offset_bottom = 422.0
-theme_override_font_sizes/font_size = 20
-text = "while no_wall:"
+text = "Reset()"
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -274,7 +409,7 @@ offset_top = 521.0
 offset_right = 1079.0
 offset_bottom = 557.0
 theme_override_font_sizes/font_size = 20
-text = "Clear"
+text = "Clear()"
 metadata/_edit_use_anchors_ = true
 
 [node name="info_button" type="TextureButton" parent="."]
@@ -302,6 +437,5 @@ text = "INFORMATION"
 [connection signal="pressed" from="droite" to="." method="_on_btn_right_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="btn_while" to="." method="_on_btn_while_pressed"]
 [connection signal="pressed" from="Clear" to="." method="_clear_list"]
 [connection signal="pressed" from="info_button" to="." method="_on_info_button_pressed"]
