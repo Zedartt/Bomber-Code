@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dxs2bua21k5w1" path="res://images/popup_card_3.png" id="24_a3l5v"]
 [ext_resource type="Texture2D" uid="uid://dgfun5b2tt6nw" path="res://images/popup_card_4.png" id="25_7n5i0"]
 [ext_resource type="Texture2D" uid="uid://bb13ug3kdo86t" path="res://images/popup_card_5.png" id="26_p10r5"]
-[ext_resource type="Texture2D" uid="uid://kj3f25c1ajhe" path="res://images/title_algo.png" id="28_p10r5"]
+[ext_resource type="Texture2D" uid="uid://mohidiswppfv" path="res://images/title_python.png" id="28_p10r5"]
 
 [sub_resource type="GDScript" id="GDScript_204sq"]
 script/source = "extends TextureButton
@@ -168,6 +168,7 @@ stretch_mode = 0
 oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(921, 550)
+visible = true
 script = SubResource("GDScript_bl8lj")
 
 [node name="TextureRect" type="TextureRect" parent="PopupPanel1"]
@@ -176,10 +177,10 @@ anchor_left = 0.011000001
 anchor_top = 0.021000002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 917.0
-offset_bottom = 546.0
+offset_left = -6.1310005
+offset_top = -7.550001
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_qav4d")
@@ -400,10 +401,10 @@ anchor_left = 0.011000001
 anchor_top = 0.021000002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 917.0
-offset_bottom = 546.0
+offset_left = -6.1310005
+offset_top = -7.550001
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("25_7n5i0")

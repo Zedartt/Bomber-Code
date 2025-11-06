@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bomber Code"
-run/main_scene="uid://vjed5k6r4uf1"
+run/main_scene="uid://bdk3uwl6fb7m5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 "<<<<<<<HEAD[autoload]SceneTransition"="*res://autoloads/scene_transition.tscn"

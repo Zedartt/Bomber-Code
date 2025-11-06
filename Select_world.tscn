@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://e2poaj4uqkk3" path="res://images/python_pressed.png" id="4_gwbrm"]
 [ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="4_ooxhb"]
 [ext_resource type="Texture2D" uid="uid://cafuy032u3v4x" path="res://images/python_select.png" id="5_ohm6g"]
-[ext_resource type="Texture2D" uid="uid://kj3f25c1ajhe" path="res://images/title_algo.png" id="6_eq6k3"]
 [ext_resource type="Texture2D" uid="uid://d3a67lwdxfe05" path="res://images/java.png" id="6_fj5ni"]
 [ext_resource type="Texture2D" uid="uid://cllfmwn8rshyo" path="res://images/java_pressed.png" id="7_5l0qf"]
 [ext_resource type="Texture2D" uid="uid://bc6bt3fwqt7v2" path="res://images/java_select.png" id="8_eq6k3"]
 [ext_resource type="Texture2D" uid="uid://bqv3grlxlutnh" path="res://images/javascript_secret.png" id="9_fj5ni"]
 [ext_resource type="Texture2D" uid="uid://b43xm1grp5uy" path="res://images/php_secret.png" id="10_5l0qf"]
 [ext_resource type="Texture2D" uid="uid://mohidiswppfv" path="res://images/title_python.png" id="10_8krhw"]
+[ext_resource type="Texture2D" uid="uid://db2qykmle3v5r" path="res://images/title_java.png" id="10_uwn7t"]
 [ext_resource type="Texture2D" uid="uid://g88gplr0do08" path="res://images/htmlcss_secret.png" id="11_eq6k3"]
 [ext_resource type="Texture2D" uid="uid://dsrlkakqe0yp3" path="res://images/title_javascript.png" id="12_uwn7t"]
 [ext_resource type="Texture2D" uid="uid://bnox26f2x22ro" path="res://images/titre_world.png" id="14_8krhw"]
@@ -49,7 +49,7 @@ offset_left = -22.1378
 offset_top = 123.72381
 offset_right = 182.8622
 offset_bottom = 219.72382
-texture = ExtResource("6_eq6k3")
+texture = ExtResource("10_8krhw")
 expand_mode = 1
 
 [node name="world_2" type="TextureButton" parent="."]
@@ -70,7 +70,7 @@ offset_left = -14.474715
 offset_top = 133.10974
 offset_right = 170.29079
 offset_bottom = 219.72382
-texture = ExtResource("10_8krhw")
+texture = ExtResource("10_uwn7t")
 expand_mode = 1
 
 [node name="world_3" type="TextureButton" parent="."]

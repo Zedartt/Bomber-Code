@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdk3uwl6fb7m5"]
+
+[ext_resource type="Script" uid="uid://cbf0x48ucu0hb" path="res://login.gd" id="1_6hqeh"]
+[ext_resource type="Texture2D" uid="uid://bo47sadxi8aap" path="res://images/explosif-menu.png" id="1_cau7c"]
+[ext_resource type="Texture2D" uid="uid://df684aylq87c4" path="res://images/logo_bomber_code.png" id="2_xlo4h"]
+[ext_resource type="Texture2D" uid="uid://bqr0x0vgteobg" path="res://images/panel_login.png" id="3_bvvwm"]
+[ext_resource type="Texture2D" uid="uid://c7qmrx0jnigvj" path="res://images/play_button.png" id="4_bvvwm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6hqeh")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -91.0
+offset_right = 213.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cau7c")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="BomberCode" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -249.0
+offset_top = -68.0
+offset_right = 251.0
+offset_bottom = 290.0
+grow_horizontal = 2
+texture = ExtResource("2_xlo4h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -178.0
+offset_top = 203.0
+offset_right = 169.0
+offset_bottom = 594.0
+grow_horizontal = 2
+texture = ExtResource("3_bvvwm")
+stretch_mode = 5
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 334.99997
+offset_right = 489.5625
+offset_bottom = 365.99997
+scale = Vector2(4.334745, 1.2585087)
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 462.0
+offset_right = 490.5625
+offset_bottom = 493.0
+scale = Vector2(4.336813, 1.1110762)
+
+[node name="connexion_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 570.0
+offset_right = 530.0
+offset_bottom = 636.0
+texture_normal = ExtResource("4_bvvwm")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="inscription_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 570.0
+offset_right = 723.0
+offset_bottom = 636.0
+texture_normal = ExtResource("4_bvvwm")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

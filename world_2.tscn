@@ -18,12 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://glak4oap5a7b" path="res://images/java_5_pressed.png" id="12_uq7yn"]
 [ext_resource type="Texture2D" uid="uid://csv1jnvgae0ro" path="res://images/java_4_select.png" id="14_8lp45"]
 [ext_resource type="Texture2D" uid="uid://bjdjninr5bjh6" path="res://images/java_5_select.png" id="17_uq7yn"]
-[ext_resource type="Texture2D" uid="uid://mohidiswppfv" path="res://images/title_python.png" id="19_g2pns"]
+[ext_resource type="Texture2D" uid="uid://db2qykmle3v5r" path="res://images/title_java.png" id="19_g2pns"]
 [ext_resource type="Texture2D" uid="uid://baiqe8fyl0jop" path="res://images/popup_card_6.png" id="19_x2m57"]
 [ext_resource type="Texture2D" uid="uid://db8x1hb0i4j8s" path="res://images/play_button_java.png" id="20_knteu"]
 [ext_resource type="Texture2D" uid="uid://cl4jij63k4qpe" path="res://images/play_button_select_java.png" id="21_nnnec"]
-[ext_resource type="Texture2D" uid="uid://b2tsl5topfysa" path="res://images/exit_button.png" id="22_nnnec"]
 [ext_resource type="Texture2D" uid="uid://cgtb7voi4nl02" path="res://images/etoile_secret.png" id="22_sh22k"]
+[ext_resource type="Texture2D" uid="uid://dofafkmexarj0" path="res://images/button-croix.png" id="23_g2pns"]
 [ext_resource type="Texture2D" uid="uid://dypkhusq6kquj" path="res://images/popup_card_7.png" id="23_knteu"]
 [ext_resource type="Texture2D" uid="uid://damtqtr8wabq1" path="res://images/preview_lvl_1.png" id="24_jcejn"]
 [ext_resource type="Texture2D" uid="uid://b1peel7m5e8af" path="res://images/popup_card_8.png" id="24_nnnec"]
@@ -134,10 +134,10 @@ anchor_left = 0.011000001
 anchor_top = 0.021000002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 917.0
-offset_bottom = 546.0
+offset_left = -6.1310005
+offset_top = -7.550001
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_x2m57")
@@ -157,13 +157,13 @@ stretch_mode = 0
 
 [node name="close_button" type="TextureButton" parent="PopupPanel1/TextureRect"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 28.0
-offset_right = 76.0
-offset_bottom = 75.0
-texture_normal = ExtResource("22_nnnec")
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 72.0
+offset_bottom = 71.0
+texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="etoile_secret_3" type="TextureRect" parent="PopupPanel1/TextureRect"]
 layout_mode = 0
@@ -217,10 +217,10 @@ anchor_left = 0.011000001
 anchor_top = 0.021000002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 917.0
-offset_bottom = 546.0
+offset_left = -6.1310005
+offset_top = -7.550001
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("23_knteu")
@@ -240,13 +240,13 @@ stretch_mode = 0
 
 [node name="close_button" type="TextureButton" parent="PopupPanel2/TextureRect"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 28.0
-offset_right = 76.0
-offset_bottom = 75.0
-texture_normal = ExtResource("22_nnnec")
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 72.0
+offset_bottom = 71.0
+texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="etoile_secret_3" type="TextureRect" parent="PopupPanel2/TextureRect"]
 layout_mode = 0
@@ -323,13 +323,13 @@ stretch_mode = 0
 
 [node name="close_button" type="TextureButton" parent="PopupPanel3/TextureRect"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 28.0
-offset_right = 76.0
-offset_bottom = 75.0
-texture_normal = ExtResource("22_nnnec")
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 72.0
+offset_bottom = 71.0
+texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="etoile_secret_3" type="TextureRect" parent="PopupPanel3/TextureRect"]
 layout_mode = 0
@@ -383,10 +383,10 @@ anchor_left = 0.011000001
 anchor_top = 0.021000002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 917.0
-offset_bottom = 546.0
+offset_left = -6.1310005
+offset_top = -7.550001
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("25_jcejn")
@@ -406,13 +406,13 @@ stretch_mode = 0
 
 [node name="close_button" type="TextureButton" parent="PopupPanel4/TextureRect"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 28.0
-offset_right = 76.0
-offset_bottom = 75.0
-texture_normal = ExtResource("22_nnnec")
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 72.0
+offset_bottom = 71.0
+texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="etoile_secret_3" type="TextureRect" parent="PopupPanel4/TextureRect"]
 layout_mode = 0
@@ -489,13 +489,13 @@ stretch_mode = 0
 
 [node name="close_button" type="TextureButton" parent="PopupPanel5/TextureRect"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 28.0
-offset_right = 76.0
-offset_bottom = 75.0
-texture_normal = ExtResource("22_nnnec")
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 72.0
+offset_bottom = 71.0
+texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="etoile_secret_3" type="TextureRect" parent="PopupPanel5/TextureRect"]
 layout_mode = 0
