@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://daolgjkmnij7s"]
+
+[ext_resource type="Texture2D" uid="uid://dohlqbcmxunlt" path="res://images/information_panel.png" id="1_mxk5i"]
+[ext_resource type="Script" uid="uid://cqbb1kmj5lmof" path="res://information_1.gd" id="1_xggbq"]
+[ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="3_b6xrk"]
+[ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="4_ifmw6"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_xggbq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mxk5i")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 877.0
+offset_top = 22.0
+offset_right = 1039.0
+offset_bottom = 81.0
+text = "SUIVANT"
+
+[node name="info_button" type="TextureButton" parent="."]
+offset_left = 1066.0
+offset_top = 22.0
+offset_right = 1123.0
+offset_bottom = 75.0
+texture_normal = ExtResource("3_b6xrk")
+texture_hover = ExtResource("4_ifmw6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="info_button" to="." method="_on_info_button_pressed"]

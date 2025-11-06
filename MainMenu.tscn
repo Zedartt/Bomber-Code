@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://vjed5k6r4uf1"]
+[gd_scene load_steps=8 format=3 uid="uid://vjed5k6r4uf1"]
 
 [ext_resource type="Script" uid="uid://nstb35f75sde" path="res://main_menu.gd" id="1_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://bo47sadxi8aap" path="res://images/explosif-menu.png" id="2_h7a2f"]
 [ext_resource type="Texture2D" uid="uid://df684aylq87c4" path="res://images/logo_bomber_code.png" id="3_qoqlk"]
 [ext_resource type="Texture2D" uid="uid://c7qmrx0jnigvj" path="res://images/play_button.png" id="4_7r1g0"]
 [ext_resource type="Texture2D" uid="uid://dlt7ifc841bgh" path="res://images/shop.png" id="6_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://bj1orgfsf7vmb" path="res://images/shop_select.png" id="7_cqjrg"]
 [ext_resource type="Texture2D" uid="uid://bcn8gltf3ully" path="res://images/play_button_select.png" id="7_e2xy7"]
 
 [node name="MainMenu" type="Control"]
@@ -60,6 +61,7 @@ offset_top = 497.0
 offset_right = 790.0
 offset_bottom = 574.0
 texture_normal = ExtResource("6_7r1g0")
+texture_hover = ExtResource("7_cqjrg")
 ignore_texture_size = true
 stretch_mode = 5
 

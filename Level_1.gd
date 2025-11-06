@@ -87,45 +87,45 @@ func _on_btn_up_pressed():
 	if while_mode:
 		if add_command_to_script("while_up"):
 			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → haut")
+				command_list.add_item("while_no_wall:  move_up()")
 		while_mode = false
 	else:
 		if add_command_to_script("monter()"):
 			if command_list.item_count <= 4:
-				command_list.add_item("monter()")
+				command_list.add_item("move_up()")
 
 func _on_btn_down_pressed():
 	if while_mode:
 		if add_command_to_script("while_down"):
 			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → bas")
+				command_list.add_item("while_no_wall:  move_down()")
 		while_mode = false
 	else:
 		if add_command_to_script("descendre()"):
 			if command_list.item_count <= 4:
-				command_list.add_item("descendre()")
+				command_list.add_item("move_down()")
 
 func _on_btn_left_pressed():
 	if while_mode:
 		if add_command_to_script("while_left"):
 			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → gauche")
+				command_list.add_item("while_no_wall:  move_left()")
 		while_mode = false
 	else:
 		if add_command_to_script("gauche()"):
 			if command_list.item_count <= 4:
-				command_list.add_item("gauche()")
+				command_list.add_item("move_left()")
 
 func _on_btn_right_pressed():
 	if while_mode:
 		if add_command_to_script("while_right"):
 			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → droite")
+				command_list.add_item("while_no_wall:  move_right()")
 		while_mode = false
 	else:
 		if add_command_to_script("droite()"):
 			if command_list.item_count <= 4:
-				command_list.add_item("droite()")
+				command_list.add_item("move_right()")
 
 func _on_start_pressed():
 	print("▶️ EXÉCUTION DU SCRIPT")
@@ -299,11 +299,13 @@ func check_victory():
 		print("Position actuelle : (", grid_x, ", ", grid_y, ")")
 
 func show_victory_screen():
-	get_tree().change_scene_to_file("res://world_1.tscn")
+	get_tree().change_scene_to_file("res://victory.tscn")
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://world_1.tscn")
 
-
 func _on_btn_while_pressed() -> void:
 	while_mode = true
+
+func _on_info_button_pressed() -> void:
+	SceneManager.go_to_scene("res://information1.tscn")

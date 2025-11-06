@@ -1,14 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8cnmv6xbmtxs"]
+[gd_scene load_steps=19 format=3 uid="uid://c8cnmv6xbmtxs"]
 
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="1_1n7cm"]
 [ext_resource type="Script" uid="uid://ksg2rglwx42t" path="res://Level_2.gd" id="1_vx6px"]
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="2_kgqac"]
+[ext_resource type="Texture2D" uid="uid://c7xeejs4w2hqn" path="res://images/background_lvl.png" id="2_lgjvw"]
 [ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="4_kgqac"]
 [ext_resource type="Texture2D" uid="uid://b8ty1rxj54wq6" path="res://images/tileSet_grass.png" id="4_oyhbj"]
 [ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="5_lgjvw"]
 [ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="6_n8hyc"]
 [ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="8_vx6px"]
 [ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="9_oyhbj"]
+[ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="11_eiivm"]
+[ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="12_p4ecc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vx6px"]
 texture = ExtResource("4_kgqac")
@@ -132,6 +135,13 @@ size = Vector2(46, 60)
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_vx6px")
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -38.0
+offset_top = -35.0
+offset_right = 1242.0
+offset_bottom = 685.0
+texture = ExtResource("2_lgjvw")
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 150)
 tile_set = SubResource("TileSet_0eu5p")
@@ -215,10 +225,10 @@ text = "Start"
 metadata/_edit_use_anchors_ = true
 
 [node name="Reset" type="Button" parent="."]
-offset_left = 212.0
-offset_top = 607.0
-offset_right = 305.0
-offset_bottom = 643.0
+offset_left = 530.0
+offset_top = 521.0
+offset_right = 623.0
+offset_bottom = 557.0
 theme_override_font_sizes/font_size = 20
 text = "Reset"
 metadata/_edit_use_anchors_ = true
@@ -265,6 +275,24 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="info_button" type="TextureButton" parent="."]
+offset_left = 1066.0
+offset_top = 22.0
+offset_right = 1123.0
+offset_bottom = 75.0
+texture_normal = ExtResource("11_eiivm")
+texture_hover = ExtResource("12_p4ecc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+offset_left = 902.0
+offset_top = 31.0
+offset_right = 1058.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 22
+text = "INFORMATION"
+
 [connection signal="pressed" from="monter" to="." method="_on_btn_up_pressed"]
 [connection signal="pressed" from="gauche" to="." method="_on_btn_left_pressed"]
 [connection signal="pressed" from="descendre" to="." method="_on_btn_down_pressed"]
@@ -274,3 +302,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="btn_while" to="." method="_on_btn_while_pressed"]
 [connection signal="pressed" from="Clear" to="." method="clear_script"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="info_button" to="." method="_on_info_button_pressed"]

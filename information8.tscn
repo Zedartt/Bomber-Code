@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://wnv45ura36ea"]
+
+[ext_resource type="Texture2D" uid="uid://bgsr4wrags5rr" path="res://images/information_panel2.png" id="1_5k1ag"]
+[ext_resource type="Script" uid="uid://ddytg4e78xww5" path="res://information_8.gd" id="1_6ro2x"]
+[ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="2_6ro2x"]
+[ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="3_jtnjr"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_6ro2x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5k1ag")
+expand_mode = 1
+
+[node name="info_button" type="TextureButton" parent="."]
+offset_left = 1066.0
+offset_top = 22.0
+offset_right = 1123.0
+offset_bottom = 75.0
+texture_normal = ExtResource("2_6ro2x")
+texture_hover = ExtResource("3_jtnjr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="info_button" to="." method="_on_info_button_pressed"]

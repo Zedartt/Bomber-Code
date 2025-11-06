@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvippqbowk1jx"]
+
+[ext_resource type="Texture2D" uid="uid://b1ibub46tx4f8" path="res://images/information_panel3.png" id="1_al00l"]
+[ext_resource type="Script" uid="uid://cnu4q4hia0el6" path="res://information_3.gd" id="1_g055p"]
+[ext_resource type="Texture2D" uid="uid://byws1smqpjk65" path="res://images/info.png" id="3_dxhyn"]
+[ext_resource type="Texture2D" uid="uid://be2yxbrpj71dn" path="res://images/info_select.png" id="4_duimw"]
+
+[sub_resource type="GDScript" id="GDScript_5pdeq"]
+script/source = "extends TextureRect
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Node" type="Node"]
+script = ExtResource("1_g055p")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_al00l")
+expand_mode = 1
+script = SubResource("GDScript_5pdeq")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 879.0
+offset_top = 22.0
+offset_right = 1041.0
+offset_bottom = 81.0
+text = "SUIVANT"
+
+[node name="info_button" type="TextureButton" parent="."]
+offset_left = 1066.0
+offset_top = 22.0
+offset_right = 1123.0
+offset_bottom = 75.0
+texture_normal = ExtResource("3_dxhyn")
+texture_hover = ExtResource("4_duimw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 150.0
+offset_top = 22.0
+offset_right = 312.0
+offset_bottom = 81.0
+text = "BACK"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="info_button" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

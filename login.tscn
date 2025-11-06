@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdk3uwl6fb7m5"]
+[gd_scene load_steps=11 format=3 uid="uid://bdk3uwl6fb7m5"]
 
 [ext_resource type="Script" uid="uid://cbf0x48ucu0hb" path="res://login.gd" id="1_6hqeh"]
 [ext_resource type="Texture2D" uid="uid://bo47sadxi8aap" path="res://images/explosif-menu.png" id="1_cau7c"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://040s31jwqple" path="res://images/connexion_select.png" id="6_0s12h"]
 [ext_resource type="Texture2D" uid="uid://cw88r3jybqwcd" path="res://images/inscription.png" id="7_0trqi"]
 [ext_resource type="Texture2D" uid="uid://dwdubu071cqny" path="res://images/inscription_select.png" id="8_xwwoh"]
-[ext_resource type="Texture2D" uid="uid://8xmo6e4rouq6" path="res://icon.svg" id="9_0s12h"]
+[ext_resource type="Texture2D" uid="uid://bccpwr1663wyt" path="res://images/guest.png" id="9_0trqi"]
+[ext_resource type="Texture2D" uid="uid://cw8xshcrj2ef8" path="res://images/guest_select.png" id="10_xwwoh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -113,7 +114,8 @@ offset_left = 764.0
 offset_top = 554.0
 offset_right = 918.0
 offset_bottom = 631.0
-texture_normal = ExtResource("9_0s12h")
+texture_normal = ExtResource("9_0trqi")
+texture_hover = ExtResource("10_xwwoh")
 ignore_texture_size = true
 stretch_mode = 5
 

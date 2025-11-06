@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://4a1po5gbs67l"]
+[gd_scene load_steps=28 format=3 uid="uid://4a1po5gbs67l"]
 
 [ext_resource type="Script" uid="uid://dgluw1j0eir7f" path="res://world_2.gd" id="1_ia432"]
 [ext_resource type="Texture2D" uid="uid://cttkrka82m4yr" path="res://images/background.png" id="2_knteu"]
@@ -21,19 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="19_14wws"]
 [ext_resource type="Texture2D" uid="uid://db2qykmle3v5r" path="res://images/title_java.png" id="19_g2pns"]
 [ext_resource type="Texture2D" uid="uid://baiqe8fyl0jop" path="res://images/popup_card_6.png" id="19_x2m57"]
-[ext_resource type="Texture2D" uid="uid://db8x1hb0i4j8s" path="res://images/play_button_java.png" id="20_knteu"]
-[ext_resource type="Texture2D" uid="uid://cl4jij63k4qpe" path="res://images/play_button_select_java.png" id="21_nnnec"]
-[ext_resource type="Texture2D" uid="uid://cgtb7voi4nl02" path="res://images/etoile_secret.png" id="22_sh22k"]
 [ext_resource type="Texture2D" uid="uid://dofafkmexarj0" path="res://images/button-croix.png" id="23_g2pns"]
 [ext_resource type="Texture2D" uid="uid://dypkhusq6kquj" path="res://images/popup_card_7.png" id="23_knteu"]
-[ext_resource type="Texture2D" uid="uid://damtqtr8wabq1" path="res://images/preview_lvl_1.png" id="24_jcejn"]
 [ext_resource type="Texture2D" uid="uid://b1peel7m5e8af" path="res://images/popup_card_8.png" id="24_nnnec"]
 [ext_resource type="Texture2D" uid="uid://bwylqqcpgnab7" path="res://images/popup_card_9.png" id="25_jcejn"]
-[ext_resource type="Texture2D" uid="uid://dh1tk0gtlkk4f" path="res://images/preview_lvl_2.png" id="26_5fggd"]
 [ext_resource type="Texture2D" uid="uid://oyg0tcdpsprr" path="res://images/popup_card_10.png" id="26_rnk06"]
-[ext_resource type="Texture2D" uid="uid://bu6qecmsbirih" path="res://images/preview_lvl_3.png" id="28_g2pns"]
-[ext_resource type="Texture2D" uid="uid://c4mu1jdpkd866" path="res://images/preview_lvl_4.png" id="30_14wws"]
-[ext_resource type="Texture2D" uid="uid://blcys30d53fm5" path="res://images/preview_lvl_5.png" id="32_hf1lm"]
 
 [sub_resource type="GDScript" id="GDScript_x2m57"]
 script/source = "extends PopupPanel
@@ -136,26 +128,14 @@ anchor_left = 0.011000001
 anchor_top = 0.021000002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 917.0
-offset_bottom = 546.0
+offset_left = -6.1310005
+offset_top = -7.550001
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_x2m57")
 expand_mode = 1
-
-[node name="play_button_1" type="TextureButton" parent="PopupPanel1/TextureRect"]
-layout_mode = 0
-offset_left = 36.999992
-offset_top = 425.0
-offset_right = 77.38646
-offset_bottom = 462.55652
-scale = Vector2(5.9425855, 2.4496403)
-texture_normal = ExtResource("20_knteu")
-texture_hover = ExtResource("21_nnnec")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="close_button" type="TextureButton" parent="PopupPanel1/TextureRect"]
 layout_mode = 0
@@ -167,45 +147,14 @@ texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel1/TextureRect"]
+[node name="Label" type="Label" parent="PopupPanel1/TextureRect"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 342.0
-offset_right = 120.0
-offset_bottom = 396.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel1/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 261.0
-offset_right = 120.0
-offset_bottom = 315.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel1/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 180.0
-offset_right = 120.0
-offset_bottom = 234.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="PopupPanel1/TextureRect"]
-layout_mode = 0
-offset_left = 517.0
-offset_top = 143.0
-offset_right = 890.0
-offset_bottom = 509.0
-texture = ExtResource("24_jcejn")
-expand_mode = 1
-stretch_mode = 5
+offset_right = 913.0
+offset_bottom = 542.0
+theme_override_font_sizes/font_size = 44
+text = "COMMING SOON"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PopupPanel2" type="PopupPanel" parent="."]
 oversampling_override = 1.0
@@ -228,18 +177,6 @@ grow_vertical = 2
 texture = ExtResource("23_knteu")
 expand_mode = 1
 
-[node name="play_button_2" type="TextureButton" parent="PopupPanel2/TextureRect"]
-layout_mode = 0
-offset_left = 36.999992
-offset_top = 425.0
-offset_right = 77.38646
-offset_bottom = 462.55652
-scale = Vector2(5.9425855, 2.4496403)
-texture_normal = ExtResource("20_knteu")
-texture_hover = ExtResource("21_nnnec")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="close_button" type="TextureButton" parent="PopupPanel2/TextureRect"]
 layout_mode = 0
 offset_left = 15.0
@@ -250,45 +187,16 @@ texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel2/TextureRect"]
+[node name="Label" type="Label" parent="PopupPanel2/TextureRect"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 342.0
-offset_right = 120.0
-offset_bottom = 396.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel2/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 261.0
-offset_right = 120.0
-offset_bottom = 315.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel2/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 180.0
-offset_right = 120.0
-offset_bottom = 234.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="PopupPanel2/TextureRect"]
-layout_mode = 0
-offset_left = 517.0
-offset_top = 143.0
-offset_right = 890.0
-offset_bottom = 509.0
-texture = ExtResource("26_5fggd")
-expand_mode = 1
-stretch_mode = 5
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
+theme_override_font_sizes/font_size = 44
+text = "COMMING SOON"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PopupPanel3" type="PopupPanel" parent="."]
 oversampling_override = 1.0
@@ -311,18 +219,6 @@ grow_vertical = 2
 texture = ExtResource("24_nnnec")
 expand_mode = 1
 
-[node name="play_button_3" type="TextureButton" parent="PopupPanel3/TextureRect"]
-layout_mode = 0
-offset_left = 36.999992
-offset_top = 425.0
-offset_right = 77.38646
-offset_bottom = 462.55652
-scale = Vector2(5.9425855, 2.4496403)
-texture_normal = ExtResource("20_knteu")
-texture_hover = ExtResource("21_nnnec")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="close_button" type="TextureButton" parent="PopupPanel3/TextureRect"]
 layout_mode = 0
 offset_left = 15.0
@@ -333,45 +229,16 @@ texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel3/TextureRect"]
+[node name="Label" type="Label" parent="PopupPanel3/TextureRect"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 342.0
-offset_right = 120.0
-offset_bottom = 396.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel3/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 261.0
-offset_right = 120.0
-offset_bottom = 315.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel3/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 180.0
-offset_right = 120.0
-offset_bottom = 234.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="PopupPanel3/TextureRect"]
-layout_mode = 0
-offset_left = 517.0
-offset_top = 143.0
-offset_right = 890.0
-offset_bottom = 509.0
-texture = ExtResource("28_g2pns")
-expand_mode = 1
-stretch_mode = 5
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
+theme_override_font_sizes/font_size = 44
+text = "COMMING SOON"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PopupPanel4" type="PopupPanel" parent="."]
 oversampling_override = 1.0
@@ -394,18 +261,6 @@ grow_vertical = 2
 texture = ExtResource("25_jcejn")
 expand_mode = 1
 
-[node name="play_button_4" type="TextureButton" parent="PopupPanel4/TextureRect"]
-layout_mode = 0
-offset_left = 36.999992
-offset_top = 425.0
-offset_right = 77.38646
-offset_bottom = 462.55652
-scale = Vector2(5.9425855, 2.4496403)
-texture_normal = ExtResource("20_knteu")
-texture_hover = ExtResource("21_nnnec")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="close_button" type="TextureButton" parent="PopupPanel4/TextureRect"]
 layout_mode = 0
 offset_left = 15.0
@@ -416,45 +271,16 @@ texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel4/TextureRect"]
+[node name="Label" type="Label" parent="PopupPanel4/TextureRect"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 342.0
-offset_right = 120.0
-offset_bottom = 396.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel4/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 261.0
-offset_right = 120.0
-offset_bottom = 315.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel4/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 180.0
-offset_right = 120.0
-offset_bottom = 234.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="PopupPanel4/TextureRect"]
-layout_mode = 0
-offset_left = 517.0
-offset_top = 143.0
-offset_right = 890.0
-offset_bottom = 509.0
-texture = ExtResource("30_14wws")
-expand_mode = 1
-stretch_mode = 5
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
+theme_override_font_sizes/font_size = 44
+text = "COMMING SOON"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PopupPanel5" type="PopupPanel" parent="."]
 oversampling_override = 1.0
@@ -477,18 +303,6 @@ grow_vertical = 2
 texture = ExtResource("26_rnk06")
 expand_mode = 1
 
-[node name="play_button_5" type="TextureButton" parent="PopupPanel5/TextureRect"]
-layout_mode = 0
-offset_left = 36.999992
-offset_top = 425.0
-offset_right = 77.38646
-offset_bottom = 462.55652
-scale = Vector2(5.9425855, 2.4496403)
-texture_normal = ExtResource("20_knteu")
-texture_hover = ExtResource("21_nnnec")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="close_button" type="TextureButton" parent="PopupPanel5/TextureRect"]
 layout_mode = 0
 offset_left = 15.0
@@ -499,45 +313,16 @@ texture_normal = ExtResource("23_g2pns")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="etoile_secret_3" type="TextureRect" parent="PopupPanel5/TextureRect"]
+[node name="Label" type="Label" parent="PopupPanel5/TextureRect"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 342.0
-offset_right = 120.0
-offset_bottom = 396.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_2" type="TextureRect" parent="PopupPanel5/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 261.0
-offset_right = 120.0
-offset_bottom = 315.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="etoile_secret_1" type="TextureRect" parent="PopupPanel5/TextureRect"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 180.0
-offset_right = 120.0
-offset_bottom = 234.0
-texture = ExtResource("22_sh22k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="PopupPanel5/TextureRect"]
-layout_mode = 0
-offset_left = 517.0
-offset_top = 143.0
-offset_right = 890.0
-offset_bottom = 509.0
-texture = ExtResource("32_hf1lm")
-expand_mode = 1
-stretch_mode = 5
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
+theme_override_font_sizes/font_size = 44
+text = "COMMING SOON"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="level_1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="level_2" to="." method="_on_level_2_pressed"]
@@ -545,13 +330,8 @@ stretch_mode = 5
 [connection signal="pressed" from="level_4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="level_5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="PopupPanel1/TextureRect/play_button_1" to="." method="_on_play_button_1_pressed"]
 [connection signal="pressed" from="PopupPanel1/TextureRect/close_button" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="PopupPanel2/TextureRect/play_button_2" to="." method="_on_play_button_2_pressed"]
 [connection signal="pressed" from="PopupPanel2/TextureRect/close_button" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="PopupPanel3/TextureRect/play_button_3" to="." method="_on_play_button_3_pressed"]
 [connection signal="pressed" from="PopupPanel3/TextureRect/close_button" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="PopupPanel4/TextureRect/play_button_4" to="." method="_on_play_button_4_pressed"]
 [connection signal="pressed" from="PopupPanel4/TextureRect/close_button" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="PopupPanel5/TextureRect/play_button_5" to="." method="_on_play_button_5_pressed"]
 [connection signal="pressed" from="PopupPanel5/TextureRect/close_button" to="." method="_on_close_button_pressed"]
