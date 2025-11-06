@@ -309,11 +309,13 @@ func check_victory():
 		print("Position actuelle : (", grid_x, ", ", grid_y, ")")
 
 func show_victory_screen():
-	get_tree().change_scene_to_file("res://world_1.tscn")
+	get_tree().change_scene_to_file("res://victory.tscn")
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://world_1.tscn")
 
-
 func _on_btn_while_pressed() -> void:
 	while_mode = true
+
+func _on_info_button_pressed() -> void :
+	SceneManager.go_to_scene("res://information1.tscn")
