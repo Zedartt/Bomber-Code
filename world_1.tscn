@@ -1,9 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://kowrt1v264nb"]
+[gd_scene load_steps=36 format=3 uid="uid://kowrt1v264nb"]
 
 [ext_resource type="Script" uid="uid://dsypu8as2eoxo" path="res://world_1.gd" id="1_mqyi5"]
 [ext_resource type="Texture2D" uid="uid://cttkrka82m4yr" path="res://images/background.png" id="2_7n5i0"]
 [ext_resource type="Texture2D" uid="uid://dxtw1km742g8i" path="res://images/python_1.png" id="3_mnfc1"]
-[ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="4_1wjj6"]
 [ext_resource type="Texture2D" uid="uid://bit71cusov5nx" path="res://images/python_1_pressed.png" id="4_2aexw"]
 [ext_resource type="Texture2D" uid="uid://iawiuvkiuc62" path="res://images/python_1_select.png" id="5_dj43f"]
 [ext_resource type="Texture2D" uid="uid://5evnfsl7c3ls" path="res://images/python_2.png" id="5_jub6c"]
@@ -18,7 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://db2yvalqqo4r5" path="res://images/python_4_select.png" id="13_5lixo"]
 [ext_resource type="Texture2D" uid="uid://dcvdnxne7giqt" path="res://images/python_5_pressed.png" id="15_811q4"]
 [ext_resource type="Texture2D" uid="uid://cx7urbl2d8fbi" path="res://images/python_5_select.png" id="16_pmev2"]
+[ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="18_p10r5"]
 [ext_resource type="Texture2D" uid="uid://48d6irsdjem7" path="res://images/popup_card_1.png" id="19_qav4d"]
+[ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="19_uiap7"]
 [ext_resource type="Texture2D" uid="uid://c7qmrx0jnigvj" path="res://images/play_button.png" id="20_qav4d"]
 [ext_resource type="Texture2D" uid="uid://jgclsp5a46fp" path="res://images/play_button_select_python.png" id="21_7n5i0"]
 [ext_resource type="Texture2D" uid="uid://cgtb7voi4nl02" path="res://images/etoile_secret.png" id="22_ef1fd"]
@@ -160,7 +161,8 @@ offset_left = 12.0
 offset_top = 9.0
 offset_right = 82.0
 offset_bottom = 81.0
-texture_normal = ExtResource("4_1wjj6")
+texture_normal = ExtResource("18_p10r5")
+texture_hover = ExtResource("19_uiap7")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -168,7 +170,6 @@ stretch_mode = 0
 oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(921, 550)
-visible = true
 script = SubResource("GDScript_bl8lj")
 
 [node name="TextureRect" type="TextureRect" parent="PopupPanel1"]
@@ -177,10 +178,10 @@ anchor_left = 0.011000001
 anchor_top = 0.021000002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6.1310005
-offset_top = -7.550001
-offset_right = -4.0
-offset_bottom = -4.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_qav4d")
@@ -401,10 +402,10 @@ anchor_left = 0.011000001
 anchor_top = 0.021000002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6.1310005
-offset_top = -7.550001
-offset_right = -4.0
-offset_bottom = -4.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 917.0
+offset_bottom = 546.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("25_7n5i0")

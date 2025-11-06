@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://iajmkv5er4al"]
+[gd_scene load_steps=16 format=3 uid="uid://iajmkv5er4al"]
 
 [ext_resource type="Script" uid="uid://cm6prkx151ja0" path="res://Level_3.gd" id="1_v4u5w"]
 [ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="2_ymluh"]
@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="5_sguqi"]
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="6_4m54r"]
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="7_ti2hy"]
-[ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="8_r4fpt"]
+[ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="8_v4u5w"]
+[ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="9_ymluh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upn1n"]
 texture = ExtResource("2_ymluh")
@@ -169,16 +170,6 @@ position = Vector2(50, 0)
 target_position = Vector2(50, 0)
 hit_from_inside = true
 
-[node name="back" type="TextureButton" parent="."]
-offset_left = 14.0
-offset_top = 4.0
-offset_right = 84.0
-offset_bottom = 76.0
-texture_normal = ExtResource("8_r4fpt")
-ignore_texture_size = true
-stretch_mode = 0
-metadata/_edit_use_anchors_ = true
-
 [node name="monter" type="Button" parent="."]
 offset_left = 668.0
 offset_top = 161.0
@@ -264,6 +255,17 @@ theme_override_font_sizes/font_size = 20
 text = "Clear"
 metadata/_edit_use_anchors_ = true
 
+[node name="back" type="TextureButton" parent="."]
+offset_left = 530.0
+offset_top = 22.0
+offset_right = 600.0
+offset_bottom = 94.0
+texture_normal = ExtResource("8_v4u5w")
+texture_hover = ExtResource("9_ymluh")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="monter" to="." method="_on_btn_up_pressed"]
 [connection signal="pressed" from="gauche" to="." method="_on_btn_left_pressed"]
 [connection signal="pressed" from="descendre" to="." method="_on_btn_down_pressed"]
@@ -272,3 +274,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="btn_while" to="." method="_on_btn_while_pressed"]
 [connection signal="pressed" from="Clear" to="." method="clear_script"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

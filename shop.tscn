@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvhqfbsps7lcp"]
+[gd_scene load_steps=5 format=3 uid="uid://bvhqfbsps7lcp"]
 
 [ext_resource type="Script" uid="uid://bkxp0ce6kft74" path="res://shop.gd" id="1_e7rdd"]
 [ext_resource type="Texture2D" uid="uid://cbweolq2rnbgj" path="res://images/background_shop.png" id="1_viryw"]
-[ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="3_blqjs"]
+[ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="3_blqjs"]
+[ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="4_fgaav"]
 
 [node name="shop" type="Node"]
 script = ExtResource("1_e7rdd")
@@ -27,6 +28,7 @@ offset_top = 9.0
 offset_right = 82.0
 offset_bottom = 81.0
 texture_normal = ExtResource("3_blqjs")
+texture_hover = ExtResource("4_fgaav")
 ignore_texture_size = true
 stretch_mode = 0
 

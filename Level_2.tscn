@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8cnmv6xbmtxs"]
+[gd_scene load_steps=16 format=3 uid="uid://c8cnmv6xbmtxs"]
 
 [ext_resource type="Script" uid="uid://cg83u7ja2w8hh" path="res://character_body_2d.gd" id="1_1n7cm"]
 [ext_resource type="Script" uid="uid://ksg2rglwx42t" path="res://Level_2.gd" id="1_vx6px"]
 [ext_resource type="Texture2D" uid="uid://e1u2dxe4dilo" path="res://images/Main_caractere.png" id="2_kgqac"]
-[ext_resource type="Texture2D" uid="uid://cuhmbjolik2wr" path="res://images/retour.jpg" id="3_vx6px"]
 [ext_resource type="Texture2D" uid="uid://dta0mp6bnohpo" path="res://images/wall.png" id="4_kgqac"]
 [ext_resource type="Texture2D" uid="uid://b8ty1rxj54wq6" path="res://images/tileSet_grass.png" id="4_oyhbj"]
 [ext_resource type="Texture2D" uid="uid://m6xsqvjlna0o" path="res://images/asset_tiles.jpg" id="5_lgjvw"]
 [ext_resource type="Texture2D" uid="uid://btiywhc7nw2oy" path="res://images/cailloux.png" id="6_n8hyc"]
+[ext_resource type="Texture2D" uid="uid://c6rire8iaak3v" path="res://images/return.png" id="8_vx6px"]
+[ext_resource type="Texture2D" uid="uid://liotstg06sah" path="res://images/back_select.png" id="9_oyhbj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vx6px"]
 texture = ExtResource("4_kgqac")
@@ -137,16 +138,6 @@ tile_set = SubResource("TileSet_0eu5p")
 format = 2
 layer_0/tile_data = PackedInt32Array(131072, 6, 0, 131073, 6, 0, 131074, 6, 0, 131075, 6, 0, 131076, 6, 0, 131077, 6, 0, 65541, 6, 0, 0, 6, 0, 65536, 6, 0, 65537, 6, 0, 65538, 6, 0, 2, 6, 0, 1, 6, 0, 3, 6, 0, 4, 6, 0, 65539, 6, 0, 65540, 6, 0, 5, 6, 0, 196608, 6, 0, 262144, 6, 0, 262145, 6, 0, 196609, 6, 0, 196610, 6, 0, 196611, 6, 0, 262147, 6, 0, 262148, 6, 0, 196612, 6, 0, 196613, 6, 0, 262149, 6, 0, 262146, 6, 0, 6, 6, 0, 65542, 6, 0, 262150, 6, 0, 131078, 6, 0, 327680, 6, 0, 327681, 6, 0, 327682, 6, 0, 327683, 6, 0, 327684, 6, 0, 327685, 6, 0, 327686, 6, 0, -65536, 6, 0, -65535, 6, 0, -65534, 6, 0, -65533, 6, 0, -65532, 6, 0, -65531, 6, 0, -65530, 6, 0, -131066, 0, 0, -131067, 0, 0, -131068, 0, 0, -131069, 0, 0, -131070, 0, 0, -131071, 0, 0, -131072, 0, 0, 393222, 0, 0, 393221, 0, 0, 393220, 0, 0, 393219, 0, 0, 393218, 0, 0, 393217, 0, 0, 393216, 0, 0, -131065, 0, 0, -65529, 0, 0, 7, 0, 0, 65543, 0, 0, 131079, 0, 0, 327687, 0, 0, 393223, 0, 0, 196615, 0, 0, 262151, 0, 0, 196614, 6, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0)
 
-[node name="back" type="TextureButton" parent="."]
-offset_left = 564.0
-offset_top = 15.0
-offset_right = 634.0
-offset_bottom = 87.0
-texture_normal = ExtResource("3_vx6px")
-ignore_texture_size = true
-stretch_mode = 0
-metadata/_edit_use_anchors_ = true
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_1n7cm")
 
@@ -263,7 +254,17 @@ theme_override_font_sizes/font_size = 20
 text = "Clear"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[node name="back" type="TextureButton" parent="."]
+offset_left = 530.0
+offset_top = 22.0
+offset_right = 600.0
+offset_bottom = 94.0
+texture_normal = ExtResource("8_vx6px")
+texture_hover = ExtResource("9_oyhbj")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="monter" to="." method="_on_btn_up_pressed"]
 [connection signal="pressed" from="gauche" to="." method="_on_btn_left_pressed"]
 [connection signal="pressed" from="descendre" to="." method="_on_btn_down_pressed"]
@@ -272,3 +273,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="btn_while" to="." method="_on_btn_while_pressed"]
 [connection signal="pressed" from="Clear" to="." method="clear_script"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
