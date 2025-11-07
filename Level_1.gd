@@ -9,7 +9,7 @@ extends Node
 const GRID_WIDTH := 7
 const GRID_HEIGHT := 7
 const CELL_SIZE := 64
-const MAX_SCRIPT_LINES := 5
+const MAX_SCRIPT_LINES := 6
 
 const MIN_COL := 0
 const MAX_COL := 6
@@ -88,45 +88,45 @@ func remove_command_at_index(index: int):
 func _on_btn_up_pressed():
 	if while_mode:
 		if add_command_to_script("while_up"):
-			if command_list.item_count <= 4:
+			if command_list.item_count <= 5:
 				command_list.add_item("while_no_wall:  move_up()")
 		while_mode = false
 	else:
-		if add_command_to_script("monter()"):
-			if command_list.item_count <= 4:
+		if add_command_to_script("move_up()"):
+			if command_list.item_count <= 5:
 				command_list.add_item("move_up()")
 
 func _on_btn_down_pressed():
 	if while_mode:
 		if add_command_to_script("while_down"):
-			if command_list.item_count <= 4:
+			if command_list.item_count <= 5:
 				command_list.add_item("while_no_wall:  move_down()")
 		while_mode = false
 	else:
-		if add_command_to_script("descendre()"):
-			if command_list.item_count <= 4:
+		if add_command_to_script("move_down()"):
+			if command_list.item_count <= 5:
 				command_list.add_item("move_down()")
 
 func _on_btn_left_pressed():
 	if while_mode:
 		if add_command_to_script("while_left"):
-			if command_list.item_count <= 4:
+			if command_list.item_count <= 5:
 				command_list.add_item("while_no_wall:  move_left()")
 		while_mode = false
 	else:
-		if add_command_to_script("gauche()"):
-			if command_list.item_count <= 4:
+		if add_command_to_script("move_left()"):
+			if command_list.item_count <= 5:
 				command_list.add_item("move_left()")
 
 func _on_btn_right_pressed():
 	if while_mode:
 		if add_command_to_script("while_right"):
-			if command_list.item_count <= 4:
+			if command_list.item_count <= 5:
 				command_list.add_item("while_no_wall:  move_right()")
 		while_mode = false
 	else:
-		if add_command_to_script("droite()"):
-			if command_list.item_count <= 4:
+		if add_command_to_script("move_right()"):
+			if command_list.item_count <= 5:
 				command_list.add_item("move_right()")
 
 func _on_start_pressed():
@@ -143,13 +143,13 @@ func execute_script():
 func execute_command(cmd: String):
 	cmd = cmd.strip_edges()
 	
-	if cmd == "monter()":
+	if cmd == "move_up()":
 		await move_up_animated()
-	elif cmd == "descendre()":
+	elif cmd == "move_down()":
 		await move_down_animated()
-	elif cmd == "gauche()":
+	elif cmd == "move_left()":
 		await move_left_animated()
-	elif cmd == "droite()":
+	elif cmd == "move_right()":
 		await move_right_animated()
 	elif cmd == "while_up":
 		await execute_while_move("up")

@@ -9,7 +9,7 @@ extends Node
 const GRID_WIDTH := 7
 const GRID_HEIGHT := 7
 const CELL_SIZE := 64
-const MAX_SCRIPT_LINES := 5
+const MAX_SCRIPT_LINES := 6
 
 # Limites du terrain jouable
 const MIN_COL := 0
@@ -75,7 +75,7 @@ func _place_door():
 
 func add_command_to_script(command: String) -> bool:
 	if player_script.size() >= MAX_SCRIPT_LINES:
-		print("⚠️ Script plein ! Maximum 5 lignes")
+		print("⚠️ Script plein ! Maximum 6 lignes")
 		return false
 	
 	player_script.append(command)
@@ -93,46 +93,46 @@ func remove_command_at_index(index: int):
 func _on_btn_up_pressed():
 	if while_mode:
 		if add_command_to_script("while_up"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → haut")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → up")
 		while_mode = false
 	else:
-		if add_command_to_script("monter()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("monter()")
+		if add_command_to_script("move_up()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_up()")
 
 func _on_btn_down_pressed():
 	if while_mode:
 		if add_command_to_script("while_down"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → bas")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → up")
 		while_mode = false
 	else:
-		if add_command_to_script("descendre()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("descendre()")
+		if add_command_to_script("move_down()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_down()")
 
 func _on_btn_left_pressed():
 	if while_mode:
 		if add_command_to_script("while_left"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → gauche")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → left")
 		while_mode = false
 	else:
-		if add_command_to_script("gauche()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("gauche()")
+		if add_command_to_script("move_left()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_left()")
 
 func _on_btn_right_pressed():
 	if while_mode:
 		if add_command_to_script("while_right"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → droite")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → right")
 		while_mode = false
 	else:
-		if add_command_to_script("droite()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("droite()")
+		if add_command_to_script("move_right()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_right()")
 
 func _on_btn_while_pressed() -> void:
 	while_mode = true
@@ -156,13 +156,13 @@ func execute_script():
 func execute_command(cmd: String):
 	cmd = cmd.strip_edges()
 	
-	if cmd == "monter()":
+	if cmd == "move_up()":
 		await move_up_animated()
-	elif cmd == "descendre()":
+	elif cmd == "move_down()":
 		await move_down_animated()
-	elif cmd == "gauche()":
+	elif cmd == "move_left()":
 		await move_left_animated()
-	elif cmd == "droite()":
+	elif cmd == "move_right()":
 		await move_right_animated()
 	elif cmd == "while_up":
 		await execute_while_move("up")
