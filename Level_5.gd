@@ -10,7 +10,7 @@ extends Node
 const GRID_WIDTH := 7
 const GRID_HEIGHT := 7
 const CELL_SIZE := 64
-const MAX_SCRIPT_LINES := 5
+const MAX_SCRIPT_LINES := 6
 
 # Limites du terrain jouable
 const MIN_COL := 0
@@ -28,7 +28,7 @@ var grid_y := 3
 
 # Le script que le joueur construit
 var player_script: Array[String] = []
-
+var bomb_positions = []
 # Mode while
 var while_mode: bool = false
 
@@ -100,23 +100,23 @@ func _place_weapon():
 	print("🗡️ Arme placée à la case (5, 2)")
 
 func _place_bombs():
-	var bomb_positions = [
-		Vector2(0, -1), 
-		Vector2(0, 0), 
-		Vector2(0, 1), 
-		Vector2(0, 2), 
-		Vector2(0, 5), 
-		Vector2(6, -1), 
-		Vector2(6, 1), 
-		Vector2(6, 2), 
-		Vector2(6, 3), 
+	bomb_positions = [
+		Vector2(0, -1),
+		Vector2(0, 0),
+		Vector2(0, 1),
+		Vector2(0, 2),
+		Vector2(0, 5),
+		Vector2(6, -1),
+		Vector2(6, 1),
+		Vector2(6, 2),
+		Vector2(6, 3),
 		Vector2(6, 4),
-		Vector2(6, 5),
+		Vector2(6, 5)
 	]
 	
 	for pos in bomb_positions:
 		var bomb = Sprite2D.new()
-		bomb.texture = load("res://images/bomb_state1.png")
+		bomb.texture = load("res://images/bomb_state2.png")
 		
 		var grid_pos = Vector2(
 			pos.x * CELL_SIZE + CELL_SIZE / 2.0,
@@ -161,7 +161,7 @@ func pickup_weapon():
 
 func add_command_to_script(command: String) -> bool:
 	if player_script.size() >= MAX_SCRIPT_LINES:
-		print("⚠️ Script plein ! Maximum 5 lignes")
+		print("⚠️ Script plein ! Maximum 6 lignes")
 		return false
 	
 	player_script.append(command)
@@ -179,46 +179,46 @@ func remove_command_at_index(index: int):
 func _on_btn_up_pressed():
 	if while_mode:
 		if add_command_to_script("while_up"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → haut")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → up")
 		while_mode = false
 	else:
-		if add_command_to_script("monter()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("monter()")
+		if add_command_to_script("move_up()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_up()")
 
 func _on_btn_down_pressed():
 	if while_mode:
 		if add_command_to_script("while_down"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → bas")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → down")
 		while_mode = false
 	else:
-		if add_command_to_script("descendre()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("descendre()")
+		if add_command_to_script("move_down()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_down()")
 
 func _on_btn_left_pressed():
 	if while_mode:
 		if add_command_to_script("while_left"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → gauche")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → left")
 		while_mode = false
 	else:
-		if add_command_to_script("gauche()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("gauche()")
+		if add_command_to_script("move_left()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_left()")
 
 func _on_btn_right_pressed():
 	if while_mode:
 		if add_command_to_script("while_right"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → droite")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → right")
 		while_mode = false
 	else:
-		if add_command_to_script("droite()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("droite()")
+		if add_command_to_script("move_right()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_right()")
 
 func _on_btn_while_pressed() -> void:
 	while_mode = true
@@ -226,7 +226,7 @@ func _on_btn_while_pressed() -> void:
 
 func _on_btn_attack_pressed():
 	if add_command_to_script("attack()"):
-		if command_list.item_count <= 4:
+		if command_list.item_count <= 5:
 			command_list.add_item("attack()")
 
 # ========================================
@@ -247,13 +247,13 @@ func execute_script():
 func execute_command(cmd: String):
 	cmd = cmd.strip_edges()
 	
-	if cmd == "monter()":
+	if cmd == "move_up()":
 		await move_up_animated()
-	elif cmd == "descendre()":
+	elif cmd == "move_down()":
 		await move_down_animated()
-	elif cmd == "gauche()":
+	elif cmd == "move_left()":
 		await move_left_animated()
-	elif cmd == "droite()":
+	elif cmd == "move_right()":
 		await move_right_animated()
 	elif cmd == "attack()":
 		await execute_attack()
@@ -267,6 +267,7 @@ func execute_command(cmd: String):
 		await execute_while_move("right")
 	else:
 		print("❌ Commande inconnue : ", cmd)
+	_check_bomb_collision()
 
 # ========================================
 # ATTAQUE
@@ -363,7 +364,7 @@ func move_up_animated():
 	current_position = target
 	await tween.finished
 	anim.play("idle")
-	
+	_check_bomb_collision()
 	# Vérifie si on a récupéré l'arme
 	check_weapon_pickup()
 
@@ -386,7 +387,7 @@ func move_down_animated():
 	current_position = target
 	await tween.finished
 	anim.play("idle")
-	
+	_check_bomb_collision()
 	check_weapon_pickup()
 
 func move_left_animated():
@@ -408,7 +409,7 @@ func move_left_animated():
 	current_position = target
 	await tween.finished
 	anim.play("idle")
-	
+	_check_bomb_collision()
 	check_weapon_pickup()
 
 func move_right_animated():
@@ -430,9 +431,23 @@ func move_right_animated():
 	current_position = target
 	await tween.finished
 	anim.play("idle")
-	
+	_check_bomb_collision()
 	check_weapon_pickup()
 
+
+func _check_bomb_collision():
+	var player_grid_pos = Vector2(grid_x, grid_y)
+	
+	for bomb_pos in bomb_positions:
+		if player_grid_pos == bomb_pos:
+			print("💥 BOOM ! Bombe touchée à la case (", grid_x, ", ", grid_y, ")")
+			
+			if anim:
+				anim.play("death")  # Si tu as une animation de mort
+				await get_tree().create_timer(0.1).timeout
+			
+			_on_reset_pressed()
+			return
 # ========================================
 # RESET
 # ========================================

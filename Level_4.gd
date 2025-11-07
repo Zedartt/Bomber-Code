@@ -9,7 +9,7 @@ extends Node
 const GRID_WIDTH := 7
 const GRID_HEIGHT := 7
 const CELL_SIZE := 64
-const MAX_SCRIPT_LINES := 5
+const MAX_SCRIPT_LINES := 6
 
 # Limites du terrain jouable
 const MIN_COL := 0
@@ -28,6 +28,7 @@ var grid_y := 5
 # Le script que le joueur construit
 var player_script: Array[String] = []
 
+var bomb_positions = []
 # Mode while : le prochain clic sur une direction crée un bloc while_xxx
 var while_mode: bool = false
 
@@ -71,8 +72,9 @@ func _place_door():
 	add_child(door)
 	print("🚪 Porte placée à la case (6, 2)")
 	
+
 func _place_bombs():
-	var bomb_positions = [
+	bomb_positions = [
 		Vector2(1, 1),
 		Vector2(1, 2),
 		Vector2(1, 5),
@@ -86,9 +88,8 @@ func _place_bombs():
 	
 	for pos in bomb_positions:
 		var bomb = Sprite2D.new()
-		bomb.texture = load("res://images/bomb_state1.png")
+		bomb.texture = load("res://images/bomb_state2.png")
 		
-		# 💡 Décalage vertical pour aligner avec ta grille
 		var grid_pos = Vector2(
 			pos.x * CELL_SIZE + CELL_SIZE / 2.0,
 			pos.y * CELL_SIZE + CELL_SIZE / 2.0
@@ -103,13 +104,15 @@ func _place_bombs():
 		add_child(bomb)
 
 
+
+
 # ========================================
 # SYSTÈME D'AJOUT DE COMMANDES
 # ========================================
 
 func add_command_to_script(command: String) -> bool:
 	if player_script.size() >= MAX_SCRIPT_LINES:
-		print("⚠️ Script plein ! Maximum 5 lignes")
+		print("⚠️ Script plein ! Maximum 6 lignes")
 		return false
 	
 	player_script.append(command)
@@ -127,46 +130,46 @@ func remove_command_at_index(index: int):
 func _on_btn_up_pressed():
 	if while_mode:
 		if add_command_to_script("while_up"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → haut")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → up")
 		while_mode = false
 	else:
-		if add_command_to_script("monter()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("monter()")
+		if add_command_to_script("move_up()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_up()")
 
 func _on_btn_down_pressed():
 	if while_mode:
 		if add_command_to_script("while_down"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → bas")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → down")
 		while_mode = false
 	else:
-		if add_command_to_script("descendre()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("descendre()")
+		if add_command_to_script("move_down()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_down()")
 
 func _on_btn_left_pressed():
 	if while_mode:
 		if add_command_to_script("while_left"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → gauche")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → left")
 		while_mode = false
 	else:
-		if add_command_to_script("gauche()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("gauche()")
+		if add_command_to_script("move_left()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_left()")
 
 func _on_btn_right_pressed():
 	if while_mode:
 		if add_command_to_script("while_right"):
-			if command_list.item_count <= 4:
-				command_list.add_item("while pas de mur → droite")
+			if command_list.item_count <= 5:
+				command_list.add_item("while_no_wall → right")
 		while_mode = false
 	else:
-		if add_command_to_script("droite()"):
-			if command_list.item_count <= 4:
-				command_list.add_item("droite()")
+		if add_command_to_script("move_droite()"):
+			if command_list.item_count <= 5:
+				command_list.add_item("move_droite()")
 
 func _on_btn_while_pressed() -> void:
 	while_mode = true
@@ -190,29 +193,37 @@ func execute_script():
 func execute_command(cmd: String):
 	cmd = cmd.strip_edges()
 	
-	if cmd == "monter()":
+	if cmd == "move_up()":
 		await move_up_animated()
-	elif cmd == "descendre()":
+	elif cmd == "move_down()":
 		await move_down_animated()
-	elif cmd == "gauche()":
+	elif cmd == "move_left()":
 		await move_left_animated()
-	elif cmd == "droite()":
+	elif cmd == "move_right()":
 		await move_right_animated()
 	elif cmd == "while_up":
 		await execute_while_move("up")
+		return  # Le check est déjà dans move_one_step()
 	elif cmd == "while_down":
 		await execute_while_move("down")
+		return
 	elif cmd == "while_left":
 		await execute_while_move("left")
+		return
 	elif cmd == "while_right":
 		await execute_while_move("right")
+		return
 	else:
 		print("❌ Commande inconnue : ", cmd)
+		return
+	
+	# ✅ Vérifie la collision après chaque mouvement simple
+	_check_bomb_collision()
 
 # --- While no wall ----------------------
 
 func execute_while_move(direction: String) -> void:
-	print("🔁 while pas de mur →", direction)
+	print("🔁 while_no_wall →", direction)
 	while can_move_in_direction(direction):
 		await move_one_step(direction)
 
@@ -226,6 +237,8 @@ func move_one_step(direction: String) -> void:
 			await move_left_animated()
 		"right":
 			await move_right_animated()
+	
+	_check_bomb_collision()
 
 func can_move_in_direction(direction: String) -> bool:
 	var new_x := grid_x
@@ -276,18 +289,17 @@ func move_up_animated():
 		grid_y * CELL_SIZE + CELL_SIZE / 2.0
 	) + tilemap_offset
 
-	# 👉 Animation de marche vers le haut
 	anim.play("up")
-
-
 
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
 
-	# 👉 Retour à l’animation idle
 	anim.play("idle")
+	
+	# ✅ Vérifie si on a touché une bombe
+	_check_bomb_collision()
 
 func move_down_animated():
 	var new_y = grid_y + 1
@@ -310,6 +322,9 @@ func move_down_animated():
 	await tween.finished
 	
 	anim.play("idle")
+	
+	# ✅ Vérifie si on a touché une bombe
+	_check_bomb_collision()
 
 func move_left_animated():
 	var new_x = grid_x - 1
@@ -332,6 +347,9 @@ func move_left_animated():
 	await tween.finished
 	
 	anim.play("idle")
+	
+	# ✅ Vérifie si on a touché une bombe
+	_check_bomb_collision()
 
 func move_right_animated():
 	var new_x = grid_x + 1
@@ -352,8 +370,25 @@ func move_right_animated():
 	tween.tween_property(player, "position", target, 0.3)
 	current_position = target
 	await tween.finished
+	
 	anim.play("idle")
+	
+	# ✅ Vérifie si on a touché une bombe
+	_check_bomb_collision()
 
+func _check_bomb_collision():
+	var player_grid_pos = Vector2(grid_x, grid_y)
+	
+	for bomb_pos in bomb_positions:
+		if player_grid_pos == bomb_pos:
+			print("💥 BOOM ! Bombe touchée à la case (", grid_x, ", ", grid_y, ")")
+			
+			if anim:
+				anim.play("death")  # Si tu as une animation de mort
+				await get_tree().create_timer(0.1).timeout
+			
+			_on_reset_pressed()
+			return
 # ========================================
 # RESET
 # ========================================
