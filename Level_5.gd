@@ -37,6 +37,10 @@ var has_weapon: bool = false
 var weapon_grid_pos := Vector2(5, 2)  # Position de l'épée
 var weapon_sprite: Sprite2D = null  # Référence au sprite de l'arme
 
+var boss_grid_pos: Vector2i = Vector2i(1, 0)  # position du boss sur la grille
+var boss_sprite: Sprite2D = null
+var boss_alive: bool = true
+
 func _ready():
 	tilemap_offset = tilemap.position
 	_place_player()
@@ -61,25 +65,25 @@ func _place_player():
 	print("🎮 Joueur placé à la case (0, 3)")
 
 func _place_boss():
-	var boss = Sprite2D.new()
-	boss.texture = load("res://images/boss.png")
+	boss_sprite = Sprite2D.new()
+	boss_sprite.texture = load("res://images/boss.png")
 	
-	var grid_x_boss = 1
-	var grid_y_boss = 0
+	# Boss en (1, 0) sur la grille
+	boss_grid_pos = Vector2i(1, 0)
 	
 	var grid_pos = Vector2(
-		grid_x_boss * CELL_SIZE + CELL_SIZE / 2.0,
-		grid_y_boss * CELL_SIZE + CELL_SIZE / 2.0
+		boss_grid_pos.x * CELL_SIZE + CELL_SIZE / 2.0,
+		boss_grid_pos.y * CELL_SIZE + CELL_SIZE / 2.0
 	)
-	boss.position = grid_pos + tilemap_offset
+	boss_sprite.position = grid_pos + tilemap_offset
 	
-	if boss.texture:
-		var texture_size = boss.texture.get_size()
+	if boss_sprite.texture:
+		var texture_size = boss_sprite.texture.get_size()
 		var scale_factor = CELL_SIZE / max(texture_size.x, texture_size.y)
-		boss.scale = Vector2(scale_factor, scale_factor)
+		boss_sprite.scale = Vector2(scale_factor, scale_factor)
 	
-	add_child(boss)
-	print("👹 Boss placé à la case (1, 1)")
+	add_child(boss_sprite)
+	print("👹 Boss placé à la case (%d, %d)" % [boss_grid_pos.x, boss_grid_pos.y])
 
 func _place_weapon():
 	weapon_sprite = Sprite2D.new()
@@ -272,24 +276,62 @@ func execute_command(cmd: String):
 # ATTAQUE
 # ========================================
 
-func execute_attack():
+var is_attacking: bool = false
+
+func execute_attack() -> void:
+	if is_attacking:
+		return  # évite de relancer l'attaque tant que la précédente n'est pas finie
+
+	# 1) Vérifications
 	if not has_weapon:
-		print("❌ Pas d'arme !")
+		print("❌ Pas d'arme, l'attaque ne fait rien.")
 		return
 	
+	if not is_player_adjacent_to_boss():
+		print("❌ Tu dois être collé ou sur la même case que le boss pour l'attaquer.")
+		return
+
+	is_attacking = true
 	print("⚔️ ATTAQUE !")
-	
-	# Ici tu ajouteras ton animation d'attaque
-	# Exemple de placeholder :
-	await get_tree().create_timer(0.5).timeout
-	
-	# TODO : Ajouter ta logique d'animation ici
-	# Par exemple : jouer une animation sur le joueur
-	# player.play_animation("attack")
+
+	# 2) On joue l'animation une fois
+	if anim:
+		anim.play("attack")
+		# IMPORTANT : l'animation "attack" ne doit PAS être en loop dans l'éditeur
+		await anim.animation_finished
+		anim.play("idle")
+
+	# 3) On "tue" le boss
+	if boss_alive and boss_sprite:
+		boss_alive = false
+		boss_sprite.queue_free()
+		boss_sprite = null
+
+	# 4) Petite pause optionnelle
+	await get_tree().create_timer(0.1).timeout
+
+	# 5) On change directement de scène
+	show_victory_screen()
+
+	is_attacking = false
+
 
 # ========================================
 # WHILE
 # ========================================
+
+func is_player_adjacent_to_boss() -> bool:
+	if not boss_alive:
+		return false
+	
+	var dx: int = abs(grid_x - boss_grid_pos.x)
+	var dy: int = abs(grid_y - boss_grid_pos.y)
+
+	# Vrai si :
+	# - le joueur est sur la même case que le boss
+	# - OU juste à côté (haut / bas / gauche / droite)
+	return (dx == 0 and dy == 0) or (dx + dy == 1)
+
 
 func execute_while_move(direction: String) -> void:
 	print("🔁 while pas de mur →", direction)
@@ -415,7 +457,7 @@ func move_right_animated():
 	var new_x = grid_x + 1
 	
 	if new_x > MAX_COL or is_blocked(new_x, grid_y):
-		print("❌ Impossible d'aller à droite : mur !")
+		print("Impossible d'aller à droite : mur !")
 		return
 	
 	grid_x = new_x
@@ -488,7 +530,7 @@ func check_victory():
 			print("⚠️ Il te faut une arme pour vaincre le boss !")
 
 func show_victory_screen():
-	get_tree().change_scene_to_file("res://world_1.tscn")
+	get_tree().change_scene_to_file("res://victory.tscn")
 	print("✨ Niveau terminé !")
 
 func _on_back_pressed() -> void:
